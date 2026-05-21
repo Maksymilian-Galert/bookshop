@@ -1,0 +1,5 @@
+git add .
+
+git commit -m "Opis zmian które wprowadziłeś"
+
+git push

@@ -3,40 +3,50 @@
 }
 @media only screen and (min-width: 601px) {
     body {
-    max-width: 1200px;
-    margin: 0 auto;
-    top: -24px;
-    position: relative;
-    padding: 0 16px;
+        top: -8px;
+        position: relative;
     }
-    body > header {
+    body > div > * {
+        padding: 0 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    body > div.nav {
+        background-color: antiquewhite;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        font-size: 2cap;
+    }
+    body > div.header {
+        background-image: radial-gradient(#bec184, #7a4e00);
+    }
+    body > div > header {
+        max-width: 100%;
         width: 100%;
-        min-height: 360px;
-        max-height: 400px;
-        background-image: url("/ksiegarnia/files/baner2.webp");
-        background-size: cover;
+        min-height: 160px;
+        max-height: 190px;
+        background-image: url("/bookshop/files/baner.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
     }
-    body > header > h1 {
+    body > div > header > h1 {
         position: absolute;
         top: -9999px;
     }
 
-    body > nav {
+    body > div > nav {
         width: 100%;
         min-height: 30px;
         max-height: 100px;
         display: grid;
         grid-template-columns: 1fr 5fr 1fr 1fr 1fr;
-        position: sticky;
-        top: 0px;
-        z-index: 1;
-        font-size: 2cap;
-        background-color: antiquewhite;
     }
-    body > nav > a {
+    body > div > nav > a {
         height: 100px;
         text-decoration: none;
         display: flex;
@@ -45,18 +55,18 @@
         transform: scale(90%);
         border: 1px solid black;
     }
-    body > nav > div {
+    body > div > nav > div {
         height: 100px;
         overflow: hidden;
         border-collapse: collapse;
         transition: height 0.4s ease-in-out, margin-top 0.4s ease-in-out;
         transform: scale(90%);
     }
-    body > nav > div:hover {
+    body > div > nav > div:hover {
         height: 300%;
         margin-top: -25%;
     }
-    body > nav > div > a {
+    body > div > nav > div > a {
         border-collapse: collapse;
         height: 98px;
         text-decoration: none;
@@ -64,48 +74,83 @@
         justify-content: center;
         align-items: center;
         border: 1px solid black;
+        background-color: antiquewhite;
     }
-    body > nav > a > img {
+    body > div > nav > a > img {
         max-width: 100%;
         max-height: 100%;
         display: block;
         margin: 0 auto;
+        box-sizing: border-box;
+        padding: 5%;
     }
-    body > nav > input {
+    body > div > nav > input {
         max-height: 100px;
         font-size: 2cap;
         transform: scale(90%);
     }
 
 
-    body > main {
-        height: 12312312px;
+    body > div > main {
+        height: 2312px;
         width: 100%;
-        background-color: aqua;
     }
-    body > main > section {
+    body > div > main > section {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
             "header header header"
             "article1 article2 article3";
+        padding: 2%;
     }
-    body > main > section > div {
+    body > div > main > section > div {
         min-height: 240px;
-        max-height: 320px;
-        background-color: red;
+        padding: 5%;
+        box-sizing: border-box;
     }
-    body > main > section > div:first-of-type {
+    body > div > main > section > div:first-of-type {
         grid-area: article1;
     }
-    body > main > section > div:nth-of-type(2) {
+    body > div > main > section > div:nth-of-type(2) {
         grid-area: article2;
     }
-    body > main > section > div:last-of-type {
+    body > div > main > section > div:last-of-type {
         grid-area: article3;
     }
-    body > main > section > header {
+    body > div > main > section > div:hover {
+        transform: scale(110%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    body > div > main > section > header {
         grid-area: header;
+        text-align: center;
+        font-size: 150%;
+    }
+    body > div > main img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    body > div > main > section > div > figure {
+        max-width: 75%;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    body > div > main > section strong, body > div > main > section em {
+        text-align: center;
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
+    body > div > main > section strong {
+        font-size: 150%;
+    }
+    body > div > main > section input {
+        margin: auto;
+        display: block;
+    }
+    body > div > main > section > div > a {
+        color: black;
+        text-decoration: none;
     }
 }
 

@@ -1,57 +1,68 @@
+<?php
+    $servername = '127.0.0.1';
+    $username = "root";
+    $password = "";
+    $dbname = "kup_book";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUP BOOK</title>
-    <link rel="stylesheet" href="/ksiegarnia/style/style.css">
+    <link rel="stylesheet" href="/bookshop/style/style.css">
 </head>
 <body>
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/ksiegarnia/components/header.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/header.php");
     ?>
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/ksiegarnia/components/nav.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
     ?>
-    <main>
-        <section id="bestselery">
-            <header>
-                <h3>Bestselery</h3>
-            </header>
-            <?php
-                $servername = '127.0.0.1';
-                $username = "root";
-                $password = "";
-                $dbname = "kup_book";
-
-                try {
-                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    <div>
+        <main>
+            <section id="bestselery">
+                <header>
+                    <h3>Bestselery</h3>
+                </header>
+                <?php
                     for ($i = 1 ; $i <= 3; $i++) {
-                        $title = $conn->query("SELECT title FROM books WHERE id = $i");
-                        $title = $title->fetch();
-                        $author = $conn->query("SELECT author FROM books WHERE id = $i");
-                        $author = $author->fetch();
-                        $cover = $conn->query("SELECT cover FROM books WHERE id = $i");
-                        $cover = $cover->fetch();
+                        $title = $conn->query("SELECT title FROM books WHERE id = $i")->fetch();
+                        $author = $conn->query("SELECT author FROM books WHERE id = $i")->fetch();
+                        $cover = $conn->query("SELECT cover FROM books WHERE id = $i")->fetch();
                         
                         echo ("<div>");
+                        echo ("<a href='/bookshop/book?book_name=".$i."'>");
                         echo ("<figure><img src='".$cover['cover']."' alt='".$title['title']."'></figure>");
                         echo ("<strong>".$title['title']."</strong>");
                         echo ("<em>".$author['author']."</em>");
-                        echo ("<input type='button' class='book_site' value='Zobacz książkę'>");
+                        echo ("</a>");
+                        if (isset($_SESSION["logged"])) {
+                            echo ("<input type='submit' name='add_to_cart' class='book_site' value='Dodaj do koszyka'>");
+                        } else {
+                            echo ("<form action='/bookshop/login'>");
+                            echo ("<input type='submit' class='book_site' value='Zaloguj się'>");
+                            echo ("</form>");
+                        }
                         echo ("</div>");
                     }
-                } catch(PDOException $e) {
-                    echo "Connection failed: " . $e->getMessage();
-                }
-            ?>
-        </section>
-    </main>
+                ?>
+            </section>
+        </main>
+    </div>
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/ksiegarnia/components/footer.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");
     ?>
     <?php
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
         $conn = null;
     ?>
 </body>
