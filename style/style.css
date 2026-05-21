@@ -1,0 +1,161 @@
+@media only screen and (max-width: 600px) {
+   
+}
+@media only screen and (min-width: 601px) {
+    body {
+    max-width: 1200px;
+    margin: 0 auto;
+    top: -24px;
+    position: relative;
+    padding: 0 16px;
+    }
+    body > header {
+        width: 100%;
+        min-height: 360px;
+        max-height: 400px;
+        background-image: url("/ksiegarnia/files/baner2.webp");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+    }
+    body > header > h1 {
+        position: absolute;
+        top: -9999px;
+    }
+
+    body > nav {
+        width: 100%;
+        min-height: 30px;
+        max-height: 100px;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr 1fr 1fr;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        font-size: 2cap;
+        background-color: antiquewhite;
+    }
+    body > nav > a {
+        height: 100px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(90%);
+        border: 1px solid black;
+    }
+    body > nav > div {
+        height: 100px;
+        overflow: hidden;
+        border-collapse: collapse;
+        transition: height 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+        transform: scale(90%);
+    }
+    body > nav > div:hover {
+        height: 300%;
+        margin-top: -25%;
+    }
+    body > nav > div > a {
+        border-collapse: collapse;
+        height: 98px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+    }
+    body > nav > a > img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    body > nav > input {
+        max-height: 100px;
+        font-size: 2cap;
+        transform: scale(90%);
+    }
+
+
+    body > main {
+        height: 12312312px;
+        width: 100%;
+        background-color: aqua;
+    }
+    body > main > section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "header header header"
+            "article1 article2 article3";
+    }
+    body > main > section > div {
+        min-height: 240px;
+        max-height: 320px;
+        background-color: red;
+    }
+    body > main > section > div:first-of-type {
+        grid-area: article1;
+    }
+    body > main > section > div:nth-of-type(2) {
+        grid-area: article2;
+    }
+    body > main > section > div:last-of-type {
+        grid-area: article3;
+    }
+    body > main > section > header {
+        grid-area: header;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
