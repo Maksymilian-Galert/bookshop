@@ -22,7 +22,7 @@
 
 
 .register_site > div {
-    padding: 5% 10% 15% 10%;
+    padding: 5% 10% 5% 10%;
     box-sizing: border-box;
 }
 .logging_form {
@@ -52,12 +52,14 @@
 .area-guzik  { grid-area: guzik; }
 
 .logging_form * {
-    margin: 2% 0 0 0;
+    margin: 1.5% 0 0 0;
     text-align: center;
     font-size: 120%;
 }
 
-
+#pass_error {
+    color: red;
+}
 
 
 
