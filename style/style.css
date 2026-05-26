@@ -75,6 +75,7 @@
         align-items: center;
         border: 1px solid black;
         background-color: antiquewhite;
+        text-align: center;
     }
     body > div > nav > a > img {
         max-width: 100%;
@@ -144,7 +145,7 @@
     body > div > main > section strong {
         font-size: 150%;
     }
-    body > div > main > section input {
+    body > div > main > section input, body > div > main > section button {
         margin: auto;
         display: block;
     }

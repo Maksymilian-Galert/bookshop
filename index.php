@@ -1,14 +1,15 @@
 <?php
-    $servername = '127.0.0.1';
-    $username = "root";
-    $password = "";
-    $dbname = "kup_book";
-
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     session_start();
+    $connection = mysqli_connect("127.0.0.1","root","");
+    mysqli_select_db($connection,"kup_book");
+    if (isset($_GET['add_to_cart'])) {
+        $add_to_cart = intval($_GET['add_to_cart']);
+        $user_id = intval($_SESSION['log']);
+        $check_cart = mysqli_query($connection,"SELECT book_id FROM cart WHERE user_id = $user_id AND book_id = $add_to_cart;");
+        if (!$check_cart) {
+            mysqli_query($connection, "INSERT INTO cart (book_id, user_id) VALUES ('$add_to_cart', '$user_id');");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -33,9 +34,9 @@
                 </header>
                 <?php
                     for ($i = 1 ; $i <= 3; $i++) {
-                        $title = $conn->query("SELECT title FROM books WHERE id = $i")->fetch();
-                        $author = $conn->query("SELECT author FROM books WHERE id = $i")->fetch();
-                        $cover = $conn->query("SELECT cover FROM books WHERE id = $i")->fetch();
+                        $title = mysqli_fetch_array(mysqli_query($connection,"SELECT title FROM books WHERE id = $i"));
+                        $author = mysqli_fetch_array(mysqli_query($connection,"SELECT author FROM books WHERE id = $i"));
+                        $cover = mysqli_fetch_array(mysqli_query($connection,"SELECT cover FROM books WHERE id = $i"));
                         
                         echo ("<div>");
                         echo ("<a href='/bookshop/book?book_name=".$i."'>");
@@ -43,8 +44,10 @@
                         echo ("<strong>".$title['title']."</strong>");
                         echo ("<em>".$author['author']."</em>");
                         echo ("</a>");
-                        if (isset($_SESSION["logged"])) {
-                            echo ("<input type='submit' name='add_to_cart' class='book_site' value='Dodaj do koszyka'>");
+                        if (isset($_SESSION["log"])) {
+                            echo ("<form>");
+                            echo ("<button type='submit' name='add_to_cart' class='book_site' value='$i'>Dodaj do koszyka</button>");
+                            echo ("</form>");
                         } else {
                             echo ("<form action='/bookshop/login'>");
                             echo ("<input type='submit' class='book_site' value='Zaloguj się'>");
@@ -60,10 +63,7 @@
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");
     ?>
     <?php
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
-        $conn = null;
+        mysqli_close($connection);
     ?>
 </body>
 </html>
