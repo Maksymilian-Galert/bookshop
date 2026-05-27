@@ -1,0 +1,29 @@
+#the_book {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5% 5% 5% 5%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#the_book strong {
+    display: block;
+    padding-top: 5%;
+}
+
+#the_book p {
+    padding-bottom: 5%;
+}
+
+#the_book input, #the_book button {
+    margin-top: 2%
+}
+
+#the_book > div h2 {
+    font-size: 170%;
+}
+
+#the_book em {
+    display: block;
+}

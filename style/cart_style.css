@@ -1,0 +1,48 @@
+#cart {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3%;
+    box-sizing: border-box;
+}
+
+#cart > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1%;
+}
+
+#cart img {
+    max-width: 100px;
+    height: auto;
+}
+#cart figure {
+    margin: auto;
+}
+
+#cart > div > div {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+}
+
+#cart button {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    border: 0;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+#cart button#buy_every {
+    color: lightseagreen;
+}
+
+
+
+
