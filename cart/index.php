@@ -56,8 +56,6 @@
             }
         ?>
         <div>
-            <div></div>
-            <div><strong>Suma: </strong></div>
             <?php
                 $query = mysqli_query($connection, "SELECT id, book_id FROM cart WHERE user_id = $user_id;");
                 $suma = 0;
@@ -68,12 +66,14 @@
                         $data = mysqli_fetch_array(mysqli_query($connection,"SELECT price FROM books WHERE id = $row[book_id];"));
                         $suma += (float)$data['price'];
                     }
+                    echo ("<div></div>");
+                    echo ("<div><strong>Suma: </strong></div>");
+                    echo ("<div><em>$suma zł</em></div>");
+                    echo ("<form action='/bookshop/components/buying.php'>");
+                    echo ("<button id='buy_every' name='buy_every' value='$suma'>KUP WSZYSTKO</button>");
+                    echo ("</form>");
                 }
-                echo ("<div><em>$suma zł</em></div>");
             ?>
-            <form action="/bookshop/components/buying.php">
-                <button id="buy_every" name="buy_every">KUP WSZYSTKO</button>
-            </form>
         </div>
     </div>
 

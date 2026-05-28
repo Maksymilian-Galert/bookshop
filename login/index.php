@@ -8,7 +8,7 @@
             $email = $_GET['email'];
             $check_name = "SELECT email FROM users WHERE email = '$email'";
             if (mysqli_query($connection,$check_name)) {
-                used_user();
+                used_user("Ta nazwa użytkownika jest już zajęta");
             } else {
                 $password = $_GET['password'];
                 $add_user = "INSERT INTO users (email, password, role) VALUES ('$email','$password','user');";
@@ -25,7 +25,7 @@
                 $_SESSION['log'] = $log_in;
                 header("Refresh:0; url=/bookshop");
             } else {
-                used_user();
+                used_user("Błędny email lub hasło");
             }
         }
     }
@@ -50,17 +50,18 @@
 
    <?php
     if (isset($_GET['logging_site'])) {
-    
         if ($_GET['logging_site'] == "rejestracja") {
             rejestracja();
         } else {
             logowanie();
         }
+    } else if (isset($_GET['sec_password'])) {
+        rejestracja();
     } else {
         logowanie();
     }
-    function used_user() {
-        echo ("Ta nazwa użytkownika jest już zajęta");
+    function used_user($e) {
+        echo ("<input type='text' value='$e' class='invisible' id='error_message'>");
     }
     function rejestracja() {
         echo ("<div class='register_site'>");
@@ -107,6 +108,12 @@
         echo ("</div>");
     }
 ?>
+<script>
+    let error_message = document.getElementById("error_message").value;
+    if (!!error_message) {
+        document.getElementById('pass_error').innerHTML = error_message;
+    }
+</script>
 <script>
     document.getElementById("email").addEventListener("input", function(e) {
         e.target.value = e.target.value.replace(/\W/g,"");

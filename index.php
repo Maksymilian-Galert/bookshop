@@ -7,7 +7,10 @@
         $user_id = intval($_SESSION['log']);
         $check_cart = mysqli_query($connection,"SELECT book_id FROM cart WHERE user_id = $user_id AND book_id = $add_to_cart;");
         if (!mysqli_num_rows($check_cart)) {
-            mysqli_query($connection, "INSERT INTO cart (book_id, user_id) VALUES ('$add_to_cart', '$user_id');");
+            $check_order = mysqli_query($connection, "SELECT order_items.book_id FROM order_items INNER JOIN orders ON orders.id = order_items.order_id WHERE orders.user_id = $user_id AND order_items.book_id = $add_to_cart;");
+            if (!mysqli_num_rows($check_order)) {
+                mysqli_query($connection, "INSERT INTO cart (book_id, user_id) VALUES ('$add_to_cart', '$user_id');");
+            }
         }
         header("Refresh:0; url=/bookshop/cart");
     }

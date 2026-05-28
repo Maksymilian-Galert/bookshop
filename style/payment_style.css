@@ -1,0 +1,32 @@
+#payment {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3%;
+    box-sizing: border-box;
+    border: 10px solid aquamarine;
+    border-radius: 10%;
+}
+
+#payment * {
+    display: block;
+    padding: 0.5%;
+}
+#payment strong, #payment p {
+    padding-top: 2.5%;
+}
+#payment a {
+    border: 1px solid blue;
+    background-color: aquamarine;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30%;
+    margin: 3% auto;
+    box-sizing: border-box;
+    padding: 1%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+#payment a:hover {
+    background-color: aqua;
+}

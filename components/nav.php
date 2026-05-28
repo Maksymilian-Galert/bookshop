@@ -13,8 +13,8 @@
                     echo ("<a href='/bookshop/profile'>$email_name[0]</a>");
                     echo ("<a href='/bookshop/components/logout.php' id='log_out'>Wyloguj się</a>");
                 } else {
-                    echo ("<a href='/bookshop/login'>Zaloguj</a>");
-                    echo ("<a href='/bookshop/login'>Zarejestruj</a>");
+                    echo ("<a href='/bookshop/login/?logging_site=logowanie'>Zaloguj</a>");
+                    echo ("<a href='/bookshop/login/?logging_site=rejestracja'>Zarejestruj</a>");
                 }
             ?>
         </div>
