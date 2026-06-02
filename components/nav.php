@@ -2,8 +2,10 @@
     <nav>
         <a href="/bookshop">
             <img src="/bookshop/files/logo.webp" alt="logo"></a>
-        <input type="text" id="search">
-            <input type="button" value="&#128269" id="search_button">
+            <form>
+                <input type="text" id="search">
+                <button type="submit" id="search_button">&#128269;</button>
+            </form>
         <div>
             <a href="/bookshop/profile">&#128113;</a>
             <?php

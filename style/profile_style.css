@@ -1,0 +1,53 @@
+#profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    font-size: 180%;
+}
+#profile > section {
+    border-top: 1px solid darkcyan;
+    box-sizing: border-box;
+    padding: 2%;
+    margin-top: 2%;
+}
+#profile > section > ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+#profile > section > form > button {
+    border: 0;
+    background-color: white;
+    color: darkcyan;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2%;
+}
+#profile > section img {
+    max-width: 80px;
+    height: auto;
+}
+#profile > section > ol > li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 4fr;
+    padding: 2% 0% 2% 0%;
+    box-sizing: border-box;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+}
+#profile > section > ol > li > form > button {
+    border-radius: 40%;
+    background-color: greenyellow;
+    border: 1px solid green;
+    cursor: pointer;
+    padding: 10%;
+    box-sizing: border-box;
+    width: 180%;
+    color: rgb(1, 53, 1);
+    
+}
+

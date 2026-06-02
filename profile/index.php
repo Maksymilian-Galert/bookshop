@@ -49,7 +49,7 @@
                     }
                     echo ("</ul>");
                     echo ("<form>");
-                        echo ("<button name='pending' id='pending'>Zobacz wszystkie</button>");
+                        echo ("<button name='pending' id='pending'>VV Zobacz wszystkie VV</button>");
                     echo ("</form>");
                 }
             ?>
@@ -69,7 +69,7 @@
                     $all_books = mysqli_fetch_all($query, MYSQLI_ASSOC);
                     $total_books = count($all_books);
 
-                    $limit = 3;
+                    $limit = 2;
                     $show_all = isset($_GET['paid']) || $total_books <= $limit;
                     $books_to_show = $show_all ? $all_books : array_slice($all_books, 0, $limit);
 
@@ -88,7 +88,7 @@
 
                     if (!$show_all) {
                         echo ("<form method='GET'>");
-                            echo ("<button name='paid' id='paid'>Zobacz wszystkie</button>");
+                            echo ("<button name='paid' id='paid'>VV Zobacz wszystkie VV</button>");
                         echo ("</form>");
                     }
                 }
