@@ -35,6 +35,13 @@
             if (mysqli_num_rows($query) == 0){
                 echo ("Brak przedmiotów w koszyku");
             } else {
+                if (isset($_GET['bought'])) {
+                    if ($_GET['bought'] == 'kupiony') {
+                        echo ("<p style='color: indianred'>Nie można dodać produktu do koszyka, produkt został już kupiony.");
+                    } else if ($_GET['bought'] == 'koszyk') {
+                        echo ("<p style='color: indianred'>Nie można dodać produktu do koszyka, produkt jest już w koszyku.");
+                    }
+                }
                 while ($row = mysqli_fetch_array($query)) {
                     echo ("<div>");
                         $data = mysqli_fetch_array(mysqli_query($connection,"SELECT title, author, price, cover FROM books WHERE id = $row[book_id];"));
