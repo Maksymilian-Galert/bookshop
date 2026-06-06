@@ -1,0 +1,39 @@
+#admin {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    font-size: 180%;
+}
+#admin > section > ul > form > li {
+    padding: 1.5% 1% 1.5% 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 5fr 5fr;
+    justify-items: center;
+    box-sizing: border-box;
+}
+#admin > section > ul > form > li:hover { 
+    border: 1px solid blue;
+}
+#admin > section > ul li > * {
+    display: block;
+}
+
+#admin > section > ul li > button {
+    border: 0;
+    background-color: white;
+    color:darkgreen;
+    font-weight: bold;
+}
+#admin > section > ul li > button:hover {
+    cursor: pointer;
+    color: green;
+}
+
+
+
+
+

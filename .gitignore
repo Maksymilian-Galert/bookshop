@@ -6,7 +6,7 @@
 # My Files
 
 todo.txt
-files/*.xcf
+*.xcf
 
 
 # User-specific files

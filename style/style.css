@@ -22,7 +22,7 @@
     body > div.header {
         background-image: radial-gradient(#bec184, #7a4e00);
     }
-    body > div > header {
+    body > div > header#main_header {
         max-width: 100%;
         width: 100%;
         min-height: 160px;
@@ -34,7 +34,7 @@
         margin: 0 auto;
         padding: 0;
     }
-    body > div > header > h1 {
+    body > div > header#main_header > h1 {
         position: absolute;
         top: -9999px;
     }
@@ -54,6 +54,9 @@
         align-items: center;
         transform: scale(90%);
         border: 1px solid black;
+    }
+    body > div > nav > a:last-of-type, body > div > nav > div > a:first-of-type {
+        font-size: 200%;
     }
     body > div > nav > div {
         height: 100px;
