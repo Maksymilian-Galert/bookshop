@@ -8,32 +8,39 @@ h2 {
     text-align: center;
     font-size: 180%;
 }
-#admin > section > ul > form > li {
+#admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
     padding: 1.5% 1% 1.5% 1%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 5fr 5fr;
     justify-items: center;
     box-sizing: border-box;
 }
-#admin > section > ul > form > li:hover { 
+#admin > section:first-of-type > ul > form > li:hover { 
     border: 1px solid blue;
 }
-#admin > section > ul li > * {
+#admin > section:first-of-type > ul li > * {
     display: block;
 }
 
-#admin > section > ul li > button {
+#admin > section:first-of-type > ul li > button {
     border: 0;
     background-color: white;
     color:darkgreen;
     font-weight: bold;
 }
-#admin > section > ul li > button:hover {
+#admin > section:first-of-type > ul li > button:hover {
     cursor: pointer;
     color: green;
 }
 
-
+#oplacone {
+    border: 0;
+    background-color: white;
+    color: darkcyan;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2%;
+}
 
 
 
