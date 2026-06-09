@@ -42,5 +42,14 @@ h2 {
     padding: 2%;
 }
 
+#admin > section #add > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
 
-
+#admin > section #add > fieldset > *{
+    padding: 0;
+    width: 100%;
+    font-size: 80%;
+    text-align: center; 
+}

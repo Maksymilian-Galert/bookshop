@@ -2,8 +2,8 @@
     <nav>
         <a href="/bookshop">
             <img src="/bookshop/files/logo.webp" alt="logo"></a>
-            <form>
-                <input type="text" id="search">
+            <form action="/bookshop/search">
+                <input type="text" id="search" value="Wyszukaj" placeholder="Pokaż wszystkie" name="search">
                 <button type="submit" id="search_button">&#128269;</button>
             </form>
         <div>
@@ -34,4 +34,16 @@
             }
         ?>
     </nav>
+    <script>
+        document.getElementById("search").addEventListener("focusin", function (e) {
+            if (e.target.value == 'Wyszukaj') {
+                e.target.value = '';
+            }
+        });
+        document.getElementById("search").addEventListener("focusout", function (e) {
+            if (e.target.value == '') {
+                e.target.value = 'Wyszukaj';
+            }
+        });
+    </script>
 </div>

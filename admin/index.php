@@ -107,7 +107,7 @@
         </section>
         <section>
             <header>
-                <h3>Dodawanie oraz usuwanie książek</h3>
+                <h3>Dodawanie książek</h3>
             </header>
             <?php
                 if (isset($_GET['add'])) {
@@ -124,13 +124,15 @@
                 }
             ?>
             <form id="add">
-                <input type="text" name="title" placeholder="Tytuł książki">
-                <input type="text" name="author" placeholder="Imię i nazwisko autora">
-                <textarea placeholder="Opis książki" name="description" rows="4" cols="50"></textarea>
-                <input type="number" name="price" placeholder="Cena książki" step="0.01">
-                <input type="text" name="file_path" placeholder="Nazwa pliku pdf">
-                <input type="text" name="cover" placeholder="Ścieżka dostępu okładki">
-                <button type="submit" name="add">Dodaj książkę</button>
+                <fieldset>
+                    <input type="text" name="title" placeholder="Tytuł książki">
+                    <input type="text" name="author" placeholder="Imię i nazwisko autora">
+                    <textarea placeholder="Opis książki" name="description" rows="4" cols="50"></textarea>
+                    <input type="number" name="price" placeholder="Cena książki" step="0.01">
+                    <input type="text" name="file_path" placeholder="Nazwa pliku pdf">
+                    <input type="text" name="cover" placeholder="Ścieżka dostępu okładki">
+                    <button type="submit" name="add">Dodaj książkę</button>
+                </fieldset>
             </form>
         </section>
     </div>
@@ -180,12 +182,12 @@
         });
         document.getElementsByName("file_path")[0].addEventListener("focusin", function(e) {
             if (!e.target.value) {
-                e.target.value = document.getElementsByName("title")[0].value.toLowerCase().replaceAll(/[^a-z0-9]/g,"_") + ".pdf";
+                e.target.value = document.getElementsByName("title")[0].value.toLowerCase().replaceAll("ń","n").replaceAll("ł","l").replaceAll("ó","o").replaceAll("ę","e").replaceAll("ą","a").replaceAll("ć","c").replaceAll("ś","s").replaceAll("ź","z").replaceAll("ż","z").replaceAll(/[^a-z0-9]/g,"_") + ".pdf";
             }
         });
         document.getElementsByName("cover")[0].addEventListener("focusin", function(e) {
             if (!e.target.value) {
-                e.target.value = "/bookshop/books/" + document.getElementsByName("title")[0].value.toLowerCase().replaceAll(/[^a-z0-9]/g,"_") + ".png";
+                e.target.value = "/bookshop/books/" + document.getElementsByName("title")[0].value.toLowerCase().replaceAll("ń","n").replaceAll("ł","l").replaceAll("ó","o").replaceAll("ę","e").replaceAll("ą","a").replaceAll("ć","c").replaceAll("ś","s").replaceAll("ź","z").replaceAll("ż","z").replaceAll(/[^a-z0-9]/g,"_") + ".png";
             }
         });
     </script>

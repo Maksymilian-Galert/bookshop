@@ -89,12 +89,12 @@
         padding: 5%;
     }
     body > div > nav > form > input {
-        height: 90px;
+        height: 92px;
         max-width: 100%;
-        padding: 5px;
+        padding: 15px;
         box-sizing: border-box;
-        margin-top: 5px;
-        font-size: 2.5cap;
+        transform: translateY(-4px);
+        font-size: 2cap;
         width: 83%;
     }
     body > div > nav > form > button {
