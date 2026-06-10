@@ -25,18 +25,28 @@
             } else {
                 $search = $_GET['search'];
                 if ($search == "Wyszukaj") {
-                    $query = mysqli_query($connection,"SELECT title, author, price, cover FROM books;");
+                    $query = mysqli_query($connection,"SELECT id, title, author, price, cover FROM books;");
                     $wynik = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                    echo ("<header><h2>Wszystkie książki w katalogu</h2></header>");
                 } else {
-                    $query = mysqli_query($connection,"SELECT title, author, price, cover FROM books WHERE title LIKE '%$search%';");
+                    $query = mysqli_query($connection,"SELECT id, title, author, price, cover FROM books WHERE title LIKE '%$search%';");
                     $wynik = mysqli_fetch_all($query, MYSQLI_ASSOC);
-                    $query = mysqli_query($connection,"SELECT title, author, price, cover FROM books WHERE author LIKE '%$search%';");
+                    $query = mysqli_query($connection,"SELECT id, title, author, price, cover FROM books WHERE author LIKE '%$search%';");
                     $wynik = array_merge($wynik, mysqli_fetch_all($query, MYSQLI_ASSOC));
-                    $query = mysqli_query($connection,"SELECT title, author, price, cover FROM books WHERE description LIKE '%$search%';");
+                    $query = mysqli_query($connection,"SELECT id, title, author, price, cover FROM books WHERE description LIKE '%$search%';");
                     $wynik = array_merge($wynik, mysqli_fetch_all($query, MYSQLI_ASSOC));
+                    echo ("<header><h2>Wyniki wyszukania po frazie: $search</h2></header>");
                 }
+
                 foreach ($wynik as $row) {
-                    echo ("$row[title]<br>");
+                    echo ("<a href='/bookshop/book/?book_name=$row[id]'>");
+                        echo ("<div>");
+                            echo ("<img src='$row[cover]' alt='$row[title]'>");
+                            echo ("<strong>$row[title]</strong>");
+                            echo ("<em>$row[author]</em>");
+                            echo ("<span>$row[price]</span>");
+                        echo ("</div>");
+                    echo ("</a>");
                 }
             }
         ?>
