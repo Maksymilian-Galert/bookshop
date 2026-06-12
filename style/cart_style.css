@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 3%;
     box-sizing: border-box;
+    min-height: 194px;
 }
 
 #cart > div {

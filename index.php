@@ -44,20 +44,78 @@
                     <h3>Bestselery</h3>
                 </header>
                 <?php
-                    for ($i = 1 ; $i <= 3; $i++) {
-                        $title = mysqli_fetch_array(mysqli_query($connection,"SELECT title FROM books WHERE id = $i"));
-                        $author = mysqli_fetch_array(mysqli_query($connection,"SELECT author FROM books WHERE id = $i"));
-                        $cover = mysqli_fetch_array(mysqli_query($connection,"SELECT cover FROM books WHERE id = $i"));
-                        
+                    $order_of_bestsellers = mysqli_query($connection, "SELECT book_id FROM order_items GROUP BY book_id ORDER BY COUNT(id) DESC LIMIT 3;");
+                    $order_of_bestsellers = mysqli_fetch_all($order_of_bestsellers, MYSQLI_ASSOC);
+                    foreach ($order_of_bestsellers as $i) {
+                        $query = mysqli_fetch_array(mysqli_query($connection, "SELECT title, author, cover FROM books WHERE id = $i[book_id];"));
+
                         echo ("<div>");
-                        echo ("<a href='/bookshop/book?book_name=".$i."'>");
-                        echo ("<figure><img src='".$cover['cover']."' alt='".$title['title']."'></figure>");
-                        echo ("<strong>".$title['title']."</strong>");
-                        echo ("<em>".$author['author']."</em>");
+                        echo ("<a href='/bookshop/book?book_name=".$i['book_id']."'>");
+                        echo ("<figure><img src='".$query['cover']."' alt='".$query['title']."'></figure>");
+                        echo ("<strong>".$query['title']."</strong>");
+                        echo ("<em>".$query['author']."</em>");
                         echo ("</a>");
                         if (isset($_SESSION["log"])) {
                             echo ("<form>");
-                            echo ("<button type='submit' name='add_to_cart' class='book_site' value='$i'>Dodaj do koszyka</button>");
+                            echo ("<button type='submit' name='add_to_cart' class='book_site' value='$i[book_id]'>Dodaj do koszyka</button>");
+                            echo ("</form>");
+                        } else {
+                            echo ("<form action='/bookshop/login'>");
+                            echo ("<input type='submit' class='book_site' value='Zaloguj się'>");
+                            echo ("</form>");
+                        }
+                        echo ("</div>");
+                    }
+                ?>
+            </section>
+            <section id="najnowsze">
+                <header>
+                    <h3>Nowości</h3>
+                </header>
+                <?php
+                    $order_of_new_ones = mysqli_query($connection, "SELECT id as 'book_id' FROM books ORDER BY book_id DESC LIMIT 3;");
+                    $order_of_new_ones = mysqli_fetch_all($order_of_new_ones, MYSQLI_ASSOC);
+                    foreach ($order_of_new_ones as $i) {
+                        $query = mysqli_fetch_array(mysqli_query($connection, "SELECT title, author, cover FROM books WHERE id = $i[book_id];"));
+
+                        echo ("<div>");
+                        echo ("<a href='/bookshop/book?book_name=".$i['book_id']."'>");
+                        echo ("<figure><img src='".$query['cover']."' alt='".$query['title']."'></figure>");
+                        echo ("<strong>".$query['title']."</strong>");
+                        echo ("<em>".$query['author']."</em>");
+                        echo ("</a>");
+                        if (isset($_SESSION["log"])) {
+                            echo ("<form>");
+                            echo ("<button type='submit' name='add_to_cart' class='book_site' value='$i[book_id]'>Dodaj do koszyka</button>");
+                            echo ("</form>");
+                        } else {
+                            echo ("<form action='/bookshop/login'>");
+                            echo ("<input type='submit' class='book_site' value='Zaloguj się'>");
+                            echo ("</form>");
+                        }
+                        echo ("</div>");
+                    }
+                ?>
+            </section>
+            <section id="our_offer">
+                <header>
+                    <h3>Nasza oferta</h3>
+                </header>
+                <?php
+                    $order_of_our_offer = mysqli_query($connection, "SELECT id as 'book_id' FROM books ORDER BY book_id ASC LIMIT 3;");
+                    $order_of_our_offer = mysqli_fetch_all($order_of_our_offer, MYSQLI_ASSOC);
+                    foreach ($order_of_our_offer as $i) {
+                        $query = mysqli_fetch_array(mysqli_query($connection, "SELECT title, author, cover FROM books WHERE id = $i[book_id];"));
+
+                        echo ("<div>");
+                        echo ("<a href='/bookshop/book?book_name=".$i['book_id']."'>");
+                        echo ("<figure><img src='".$query['cover']."' alt='".$query['title']."'></figure>");
+                        echo ("<strong>".$query['title']."</strong>");
+                        echo ("<em>".$query['author']."</em>");
+                        echo ("</a>");
+                        if (isset($_SESSION["log"])) {
+                            echo ("<form>");
+                            echo ("<button type='submit' name='add_to_cart' class='book_site' value='$i[book_id]'>Dodaj do koszyka</button>");
                             echo ("</form>");
                         } else {
                             echo ("<form action='/bookshop/login'>");

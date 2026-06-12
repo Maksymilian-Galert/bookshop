@@ -55,6 +55,9 @@
         transform: scale(90%);
         border: 1px solid black;
     }
+    body > div > nav > a:hover, body > div > nav > div > a:hover {
+        background-color: #d7c8b4;
+    }
     body > div > nav > a:last-of-type, body > div > nav > div > a:first-of-type {
         font-size: 200%;
     }
@@ -66,8 +69,8 @@
         transform: scale(90%);
     }
     body > div > nav > div:hover {
-        height: 300%;
-        margin-top: -25%;
+        height: 104%;
+        margin-top: -7.2%;
     }
     body > div > nav > div > a {
         border-collapse: collapse;
@@ -110,7 +113,7 @@
 
 
     body > div > main {
-        height: 2312px;
+        min-height: 500px;
         width: 100%;
     }
     body > div > main > section {
@@ -184,6 +187,7 @@
         justify-items: center;
         align-items: center;
         padding: 1%;
+        border: 3px solid white;
     }
     #main_search a div:hover {
         border: 3px dotted blue;
@@ -195,6 +199,36 @@
     #main_search a div img {
         max-height: 100px;
         width: auto;
+    }
+
+
+    body > div.footer {
+        background-color: antiquewhite;
+        min-height: 50px;
+        padding: 20px;
+        margin: 20px 0px -16px 0px;
+        box-sizing: border-box;
+    }
+    body > div.footer > footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+    body > div.footer > footer > nav {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    body > div.footer > footer a {
+        color: black;
+        text-decoration: none;
+    }
+    body > div.footer > footer > nav a {
+        padding-bottom: 8%; 
+    }
+    body > div.footer > footer > nav a:hover {
+        color: darkcyan;
+        text-decoration: underline; 
     }
 }
 

@@ -1,11 +1,12 @@
 <div class="nav">
-    <nav>
+    <nav aria-label="Main menu">
         <a href="/bookshop">
-            <img src="/bookshop/files/logo.webp" alt="logo"></a>
-            <form action="/bookshop/search">
-                <input type="text" id="search" value="Wyszukaj" placeholder="Pokaż wszystkie" name="search">
-                <button type="submit" id="search_button">&#128269;</button>
-            </form>
+            <img src="/bookshop/files/logo.webp" alt="logo">
+        </a>
+        <form action="/bookshop/search">
+            <input type="text" id="search" value="Wyszukaj" placeholder="Pokaż wszystkie" name="search">
+            <button type="submit" id="search_button">&#128269;</button>
+        </form>
         <div>
             <a href="/bookshop/profile">&#128113;</a>
             <?php

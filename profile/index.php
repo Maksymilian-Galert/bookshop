@@ -87,12 +87,15 @@
                     echo ("</ol>");
 
                     if (!$show_all) {
-                        echo ("<form method='GET'>");
+                        echo ("<form method='GET' class='show_all'>");
                             echo ("<button name='paid' id='paid'>VV Zobacz wszystkie VV</button>");
                         echo ("</form>");
                     }
                 }
             ?>
+            <form action="/bookshop/components/logout.php" id="profile_log_out">
+                <button type="submit">Wyloguj się</button>
+            </form>
         </section>
     </div>
 
