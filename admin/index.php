@@ -19,6 +19,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
@@ -32,11 +33,13 @@
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
     ?>
     
-    <div id="admin">
-        <?php
-            $email = mysqli_fetch_array(mysqli_query($connection, "SELECT email FROM users WHERE id = '$user_id';"))['email'];
-            echo ("<h2>Witaj, $email</h2>");
-        ?>
+    <main id="admin">
+        <header>
+            <?php
+                $email = mysqli_fetch_array(mysqli_query($connection, "SELECT email FROM users WHERE id = '$user_id';"))['email'];
+                echo ("<h2>Witaj, $email</h2>");
+            ?>
+        </header>
         <?php
             if (isset($_GET['set_paid'])) {
                 $order_id = $_GET['set_paid'];
@@ -135,7 +138,7 @@
                 </fieldset>
             </form>
         </section>
-    </div>
+    </main>
 
     <script>
         document.getElementById("add").addEventListener("submit", function (e) {

@@ -27,6 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
     <link rel="stylesheet" href="/bookshop/style/book_style.css">
@@ -47,7 +48,7 @@
         $data = mysqli_fetch_array(mysqli_query($connection,"SELECT title, author, description, price, cover FROM books WHERE id = $id;"));
     ?>
 
-    <div id="the_book">
+    <main id="the_book">
         <figure>
             <?php
                 echo ("<img src='$data[cover]' alt='$data[title]'>");
@@ -55,7 +56,7 @@
         </figure>
         <div>
             <?php
-                echo ("<h2>$data[title]</h2>");
+                echo ("<header><h2>$data[title]</h2></header>");
                 echo ("<em>Autor: $data[author]</em>");
             ?>
             <strong>Opis:</strong>
@@ -73,7 +74,7 @@
                 }
             ?>
         </div>
-    </div>
+    </main>
 
 
     <?php

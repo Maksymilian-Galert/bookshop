@@ -44,7 +44,7 @@
         min-height: 30px;
         max-height: 100px;
         display: grid;
-        grid-template-columns: 1fr 5fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 5fr 1fr 1fr;
     }
     body > div > nav > a {
         height: 100px;

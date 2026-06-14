@@ -17,6 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
     <link rel="stylesheet" href="/bookshop/style/cart_style.css">
@@ -29,7 +30,10 @@
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
     ?>
     
-    <div id="cart">
+    <main id="cart">
+        <header>
+            <h2>Koszyk:</h2>
+        </header>
         <?php
             $query = mysqli_query($connection, "SELECT id, book_id FROM cart WHERE user_id = $user_id;");
             if (mysqli_num_rows($query) == 0){
@@ -82,7 +86,7 @@
                 }
             ?>
         </div>
-    </div>
+    </main>
 
     <?php
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");

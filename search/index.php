@@ -21,9 +21,12 @@
     <main id="main_search">
         <?php
             if (!isset($_GET['search'])) {
-                header("Refresh: 0, url=/bookshop");
+                header("Refresh: 0, url=/bookshop/search/?search=Wyszukaj");
             } else {
                 $search = $_GET['search'];
+                if ($search == '') {
+                    header("Refresh: 0, url=/bookshop/search/?search=Wyszukaj");
+                }
                 if ($search == "Wyszukaj") {
                     $query = mysqli_query($connection,"SELECT id, title, author, price, cover FROM books;");
                     $wynik = mysqli_fetch_all($query, MYSQLI_ASSOC);

@@ -23,14 +23,18 @@
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
     ?>
 
-    <div id="profile">
-        <?php
-            $user_id = $_SESSION['log'];
-            $email = mysqli_fetch_array(mysqli_query($connection, "SELECT email FROM users WHERE id = '$user_id';"))[0];
-            echo ("<h2>Witaj, $email</h2>");
-        ?>
+    <main id="profile">
+        <header>
+            <?php
+                $user_id = $_SESSION['log'];
+                $email = mysqli_fetch_array(mysqli_query($connection, "SELECT email FROM users WHERE id = '$user_id';"))[0];
+                echo ("<h2>Witaj, $email</h2>");
+            ?>
+        </header>
         <section>
-            <h3>Twoje zamówienia</h3>
+            <header>
+                <h3>Twoje zamówienia</h3>
+            </header>
             <?php
                 $pending = mysqli_query($connection, "SELECT id, total_price FROM orders WHERE user_id = '$user_id' AND status = 'pending' ORDER BY id DESC;");
                 if (mysqli_num_rows($pending) == 0) {
@@ -55,7 +59,9 @@
             ?>
         </section>
         <section>
-            <h3>Twoje książki</h3>
+            <header>
+                <h3>Twoje książki</h3>
+            </header>
             <?php
                 $query = mysqli_query($connection,"SELECT books.id AS book_id, books.title, books.cover 
                         FROM orders
@@ -97,7 +103,7 @@
                 <button type="submit">Wyloguj się</button>
             </form>
         </section>
-    </div>
+    </main>
 
     <?php
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");
