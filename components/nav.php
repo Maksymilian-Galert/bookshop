@@ -4,6 +4,7 @@
         <span id="invisible_arrow">&#8595;</span>
         <a href="/bookshop">
             <img src="/bookshop/files/logo.webp" alt="logo">
+            <span>Strona główna</span>
         </a>
         <form action="/bookshop/search">
             <input type="text" id="search" value="Wyszukaj" placeholder="Pokaż wszystkie" name="search">
@@ -28,12 +29,12 @@
                 $log = $_SESSION['log'];
                 $role= mysqli_fetch_array(mysqli_query($connection,"SELECT role FROM users WHERE id = $log;"))[0];
                 if ($role == 'admin') {
-                    echo ("<a href='/bookshop/admin'>&#9763;</a>");
+                    echo ("<a href='/bookshop/admin'><span>&#9763;</span> <span>Panel admina</span></a>");
                 } else {
-                    echo ("<a href='/bookshop/cart'>&#128722;</a>");
+                    echo ("<a href='/bookshop/cart'><span>&#128722;</span> <span>Koszyk</span></a>");
                 }
             } else {
-                echo ("<a href='/bookshop/cart'>&#128722;</a>");
+                echo ("<a href='/bookshop/cart'><span>&#128722;</span> <span>Koszyk</span></a>");
             }
         ?>
     </nav>

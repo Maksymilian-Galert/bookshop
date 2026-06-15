@@ -99,6 +99,7 @@
     body > div.nav > nav img {
         width: 40px;
         height: 40px;
+        transform: translateY(30%);
     }
     body > div.nav > nav form {
         display: grid;
@@ -108,9 +109,6 @@
     }
     body > div.nav > nav > div > a:first-child {
         display: none;
-    }
-    body > div.nav > nav > a:last-of-type {
-        text-decoration: none;
     }
 
 
@@ -233,6 +231,32 @@
         text-decoration: underline; 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (min-width: 601px) {
     body {
         top: -8px;
@@ -244,13 +268,7 @@
         margin: 0 auto;
         box-sizing: border-box;
     }
-    body > div.nav {
-        background-color: antiquewhite;
-        position: sticky;
-        top: 0px;
-        z-index: 1;
-        font-size: 2cap;
-    }
+    
     body > div.header {
         background-image: radial-gradient(#bec184, #7a4e00);
     }
@@ -270,7 +288,14 @@
         position: absolute;
         top: -9999px;
     }
-
+    
+    body > div.nav {
+        background-color: antiquewhite;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        font-size: 2cap;
+    }
     body > div > nav {
         width: 100%;
         min-height: 30px;
@@ -281,11 +306,14 @@
     body > div > nav > a {
         height: 100px;
         text-decoration: none;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr;
         justify-content: center;
         align-items: center;
         transform: scale(90%);
         border: 1px solid black;
+        overflow: hidden;
+
     }
     body > div > nav > a:hover, body > div > nav > div > a:hover {
         background-color: #d7c8b4;
@@ -321,7 +349,13 @@
         display: block;
         margin: 0 auto;
         box-sizing: border-box;
-        padding: 5%;
+        padding: 0 15% 15% 15%;
+    }
+    body > div > nav > a:last-of-type > span:last-of-type {
+        display: none;
+    }
+    body > div > nav > a:last-of-type > span{
+        margin: 0 auto;
     }
     body > div > nav > form > input {
         height: 92px;
