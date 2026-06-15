@@ -1,6 +1,7 @@
 <div class="nav">
-    <div id="wycofaj"></div>
+    <div id="wycofaj">&#8593;</div>
     <nav aria-label="Main menu">
+        <span id="invisible_arrow">&#8595;</span>
         <a href="/bookshop">
             <img src="/bookshop/files/logo.webp" alt="logo">
         </a>
