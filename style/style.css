@@ -1,5 +1,292 @@
 @media only screen and (max-width: 600px) {
-   
+   body {
+        top: -8px;
+        position: relative;
+    }
+    body > div > * {
+        width: 100%;
+        padding: 0 16px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body > div.header {
+        background-image: radial-gradient(#bec184, #7a4e00);
+    }
+    body > div > header#main_header {
+        max-width: 550px;
+        width: 100%;
+        min-height: 150px;
+        max-height: 180px;
+        background-image: url("/bookshop/files/baner_mobile.webp");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: left;
+        margin: 0;
+        padding: 0;
+    }
+    body > div > header#main_header > h1 {
+        position: absolute;
+        top: -9999px;
+    }
+
+
+
+
+
+
+
+
+
+
+    body > div.nav {
+        background-color: antiquewhite;
+        position: sticky;
+        overflow: hidden;
+        top: 0px;
+        z-index: 1;
+        font-size: 1.5cap;
+        height: 50px;
+    }
+    body > div > nav {
+        margin-top: 50px;
+        width: 100%;
+        height: 350px;
+        padding: 20px;
+    }
+    body > div.nav:hover {
+        height: 400px;
+        transition: all;
+        transition-duration: 2s;
+    }
+    body > div.nav > #wycofaj {
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+    }
+    body > div.nav:hover > #wycofaj {
+        top: 0px;
+        transition: all;
+        transition-delay: 1005ms;
+    }
+    body > div.nav:has(#wycofaj:hover) {
+        height: 50px;
+    }
+    body > div.nav > #wycofaj:hover {
+        top: 50px;
+    }
+    body > div.nav > nav > a:first-of-type {
+        display: none;
+    }
+    
+   /* body > div > nav {
+        width: 100%;
+        min-height: 20px;
+        max-height: 60px;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr 1fr;
+    }
+    body > div > nav > a {
+        height: 60px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(90%);
+        border: 1px solid black;
+    }
+    body > div > nav > a:hover, body > div > nav > div > a:hover {
+        background-color: #d7c8b4;
+    }
+    body > div > nav > a:last-of-type, body > div > nav > div > a:first-of-type {
+        font-size: 200%;
+    }
+    body > div > nav > div {
+        height: 60px;
+        overflow: hidden;
+        border-collapse: collapse;
+        transition: height 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+        transform: scale(90%);
+    }
+    body > div > nav > div:hover {
+        height: 104%;
+        margin-top: -7.2%;
+    }
+    body > div > nav > div > a {
+        border-collapse: collapse;
+        height: 58px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        background-color: antiquewhite;
+        text-align: center;
+    }
+    body > div > nav > a > img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 5%;
+    }
+    body > div > nav > form > input {
+        height: 92px;
+        max-width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        transform: translateY(-4px);
+        font-size: 2cap;
+        width: 83%;
+    }
+    body > div > nav > form > button {
+        height: 90px;
+        max-width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        margin-top: 5px;
+        font-size: 2.5cap;
+        width: 15%;
+        cursor: pointer;
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    body > div > main {
+        min-height: 500px;
+        width: 100%;
+    }
+    body > div > main > section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "header header header"
+            "article1 article2 article3";
+        padding: 2%;
+    }
+    body > div > main > section > div {
+        min-height: 240px;
+        padding: 5%;
+        box-sizing: border-box;
+    }
+    body > div > main > section > div:first-of-type {
+        grid-area: article1;
+    }
+    body > div > main > section > div:nth-of-type(2) {
+        grid-area: article2;
+    }
+    body > div > main > section > div:last-of-type {
+        grid-area: article3;
+    }
+    body > div > main > section > div:hover {
+        transform: scale(110%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    body > div > main > section > header {
+        grid-area: header;
+        text-align: center;
+        font-size: 150%;
+    }
+    body > div > main img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    body > div > main > section > div > figure {
+        max-width: 75%;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    body > div > main > section strong, body > div > main > section em {
+        text-align: center;
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
+    body > div > main > section strong {
+        font-size: 150%;
+    }
+    body > div > main > section input, body > div > main > section button {
+        margin: auto;
+        display: block;
+    }
+    body > div > main > section > div > a {
+        color: black;
+        text-decoration: none;
+    }
+
+    #main_search {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    #main_search h2 {
+        text-align: center;
+    }
+    #main_search a div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        padding: 1%;
+        border: 3px solid white;
+    }
+    #main_search a div:hover {
+        border: 3px dotted blue;
+    }
+    #main_search a {
+        color: black;
+        text-decoration: none;
+    }
+    #main_search a div img {
+        max-height: 100px;
+        width: auto;
+    }
+
+
+    body > div.footer {
+        background-color: antiquewhite;
+        min-height: 50px;
+        padding: 20px;
+        margin: 20px 0px -16px 0px;
+        box-sizing: border-box;
+    }
+    body > div.footer > footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+    body > div.footer > footer > nav {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    body > div.footer > footer a {
+        color: black;
+        text-decoration: none;
+    }
+    body > div.footer > footer > nav a {
+        padding-bottom: 8%; 
+    }
+    body > div.footer > footer > nav a:hover {
+        color: darkcyan;
+        text-decoration: underline; 
+    }
 }
 @media only screen and (min-width: 601px) {
     body {

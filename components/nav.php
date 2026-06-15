@@ -1,4 +1,5 @@
 <div class="nav">
+    <div id="wycofaj"></div>
     <nav aria-label="Main menu">
         <a href="/bookshop">
             <img src="/bookshop/files/logo.webp" alt="logo">
