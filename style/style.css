@@ -115,47 +115,37 @@
     body > div > main {
         min-height: 500px;
         width: 100%;
+        padding: 0;
+        box-sizing: border-box;
     }
     body > div > main > section {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas:
-            "header header header"
-            "article1 article2 article3";
-        padding: 2%;
-    }
-    body > div > main > section > div {
-        min-height: 240px;
-        padding: 5%;
+        grid-template-columns: 1fr;
+        padding: 20px;
+        width: 100%;
         box-sizing: border-box;
     }
-    body > div > main > section > div:first-of-type {
-        grid-area: article1;
-    }
-    body > div > main > section > div:nth-of-type(2) {
-        grid-area: article2;
-    }
-    body > div > main > section > div:last-of-type {
-        grid-area: article3;
+    body > div > main > section > div {
+        min-height: 260px;
+        box-sizing: border-box;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom: 10px;
     }
     body > div > main > section > div:hover {
-        transform: scale(110%);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transform: scale(105%);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     }
     body > div > main > section > header {
-        grid-area: header;
         text-align: center;
         font-size: 150%;
     }
     body > div > main img {
-        width: 100%;
-        object-fit: contain;
+        width: 80px;
         height: auto;
     }
-    body > div > main > section > div > figure {
-        max-width: 75%;
+    body > div > main > section > div figure {
         margin: 0 auto;
-        object-fit: contain;
+        padding: 10px;
     }
     body > div > main > section strong, body > div > main > section em {
         text-align: center;
@@ -171,8 +161,12 @@
     }
     body > div > main > section > div > a {
         color: black;
+        display: grid;
+        grid-template-columns: 1fr;
         text-decoration: none;
+        width: 100%;
     }
+
 
     #main_search {
         max-width: 1200px;
@@ -180,6 +174,7 @@
     }
     #main_search h2 {
         text-align: center;
+        font-size: 120%;
     }
     #main_search a div {
         display: grid;
@@ -188,6 +183,7 @@
         align-items: center;
         padding: 1%;
         border: 3px solid white;
+        font-size: 85%;
     }
     #main_search a div:hover {
         border: 3px dotted blue;
@@ -204,31 +200,28 @@
 
     body > div.footer {
         background-color: antiquewhite;
-        min-height: 50px;
+        min-height: 40px;
         padding: 20px;
         margin: 20px 0px -16px 0px;
         box-sizing: border-box;
     }
     body > div.footer > footer {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         align-items: center;
         justify-items: center;
     }
     body > div.footer > footer > nav {
         display: grid;
         grid-template-columns: 1fr;
+        padding: 20px;
     }
     body > div.footer > footer a {
-        color: black;
-        text-decoration: none;
-    }
-    body > div.footer > footer > nav a {
-        padding-bottom: 8%; 
-    }
-    body > div.footer > footer > nav a:hover {
         color: darkcyan;
         text-decoration: underline; 
+    }
+    body > div.footer > footer > nav a {
+        padding-bottom: 8%;
     }
 }
 
@@ -417,11 +410,6 @@
         width: 100%;
         object-fit: contain;
         height: auto;
-    }
-    body > div > main > section > div > figure {
-        max-width: 75%;
-        margin: 0 auto;
-        object-fit: contain;
     }
     body > div > main > section strong, body > div > main > section em {
         text-align: center;

@@ -1,14 +1,15 @@
 .register_site {
-    max-width: 1200px;
-    margin: 0 auto;
     box-sizing: border-box;
     min-height: 400px;
     border: 3px solid black;
     border-radius: 5%;
     overflow: hidden;
 }
+.change_log {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .change_log > button {
-    width: 50%;
     height: 50px;
     border-radius: 0%;
     background-color: white;
@@ -19,8 +20,6 @@
 .change_log > .active, .change_log > .active:hover {
     background-color: cyan;
 }
-
-
 .register_site > div {
     padding: 5% 10% 5% 10%;
     box-sizing: border-box;
@@ -56,31 +55,19 @@
     text-align: center;
     font-size: 120%;
 }
-
 #pass_error {
     color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media only screen and (max-width: 600px) {
+    .register_site {
+        max-width: 590px;
+        margin: 5% auto;
+    }
+}
+@media only screen and (min-width: 601px) {
+    .register_site {
+        max-width: 1200px;
+        margin: 1% auto;
+    }
+}

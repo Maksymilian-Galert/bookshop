@@ -1,5 +1,4 @@
 #profile {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 2%;
     box-sizing: border-box;
@@ -32,7 +31,6 @@ h2 {
 }
 #profile > section > ol > li {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 4fr;
     padding: 2% 0% 2% 0%;
     box-sizing: border-box;
     height: auto;
@@ -59,4 +57,22 @@ h2 {
     box-sizing: border-box;
     padding: 1%;
     margin: 20px 0px -50px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    #profile {
+        max-width: 590px;
+    }
+    #profile > section > ol > li {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        font-size: 90%;
+    }
+}
+@media only screen and (min-width: 601px) {
+    #profile {
+        max-width: 1200px;
+    }
+    #profile > section > ol > li {
+        grid-template-columns: 1fr 1fr 1fr 4fr;
+    }
 }

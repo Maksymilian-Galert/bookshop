@@ -1,5 +1,4 @@
 #admin {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 2%;
     box-sizing: border-box;
@@ -9,9 +8,7 @@ h2 {
     font-size: 180%;
 }
 #admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
-    padding: 1.5% 1% 1.5% 1%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 5fr 5fr;
     justify-items: center;
     box-sizing: border-box;
 }
@@ -21,7 +18,6 @@ h2 {
 #admin > section:first-of-type > ul li > * {
     display: block;
 }
-
 #admin > section:first-of-type > ul li > button {
     border: 0;
     background-color: white;
@@ -32,7 +28,6 @@ h2 {
     cursor: pointer;
     color: green;
 }
-
 #oplacone {
     border: 0;
     background-color: white;
@@ -41,15 +36,37 @@ h2 {
     cursor: pointer;
     padding: 2%;
 }
-
 #admin > section #add > fieldset {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-
 #admin > section #add > fieldset > *{
     padding: 0;
     width: 100%;
     font-size: 80%;
     text-align: center; 
+}
+
+@media only screen and (max-width: 600px) {
+    #admin {
+        max-width: 590px;
+    }
+    #admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
+        padding: 1.5%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
+        font-size: 90%;
+    }
+    #admin > section > ul {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    #admin {
+        max-width: 1200px;
+    }
+    #admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
+        padding: 1.5% 1% 1.5% 1%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 5fr 5fr;
+    }
 }

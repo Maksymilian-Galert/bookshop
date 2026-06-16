@@ -206,6 +206,9 @@
     }
 </script>
 <?php
+    require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");
+?>
+<?php
     mysqli_close($connection);
 ?>
 </body>
