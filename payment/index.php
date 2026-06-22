@@ -1,14 +1,19 @@
 <?php
+    //Uruchomienie sesji
     session_start();
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
+    //Przekierowanie, gdy niedokonano zakupu
     if (!isset($_GET['buy_every'])) {
         header("Refresh: 0, url=/bookshop/cart");
     } else {
+        //Przekierowanie niezalogowanych
         if (!isset($_SESSION['log'])) {
             header("Refresh: 0, url=/bookshop/login");
         }
         $user_id = $_SESSION['log'];
+        //Pobranie informacji o zamówieniu
         $orders = mysqli_fetch_array(mysqli_query($connection,"SELECT id FROM orders WHERE user_id = '$user_id' AND status = 'pending' AND total_price = '$_GET[buy_every]' ORDER BY id DESC;"))[0];
     }
 ?>
@@ -20,7 +25,6 @@
     <meta name="robots" content="noindex">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
-    <link rel="stylesheet" href="/bookshop/style/payment_style.css">
 </head>
 <body>
     <?php

@@ -1,10 +1,14 @@
 <?php
+    //Uruchomienie sesji
     session_start();
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
+    //Przekierowanie niezalogowanego użytkownika
     if (!isset($_SESSION['log'])) {
         header("Refresh:0, url=/bookshop/login");
     } else {
+        //Logika usuwania produktów z koszyka
         $user_id = $_SESSION['log'];
         if (isset($_GET['delete'])) {
             $book_id = $_GET['delete'];
@@ -20,7 +24,6 @@
     <meta name="robots" content="noindex">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
-    <link rel="stylesheet" href="/bookshop/style/cart_style.css">
 </head>
 <body>
     <?php
@@ -39,6 +42,7 @@
             if (mysqli_num_rows($query) == 0){
                 echo ("Brak przedmiotów w koszyku");
             } else {
+                //Rozpatrywanie sytuacji, gdy nie można ponownie kupić/dodać do koszyka produktu
                 if (isset($_GET['bought'])) {
                     if ($_GET['bought'] == 'kupiony') {
                         echo ("<p style='color: indianred'>Nie można dodać produktu do koszyka, produkt został już kupiony.");
@@ -46,6 +50,7 @@
                         echo ("<p style='color: indianred'>Nie można dodać produktu do koszyka, produkt jest już w koszyku.");
                     }
                 }
+                //Wyświetlanie zawartości koszyka
                 while ($row = mysqli_fetch_array($query)) {
                     echo ("<div>");
                         $data = mysqli_fetch_array(mysqli_query($connection,"SELECT title, author, price, cover FROM books WHERE id = $row[book_id];"));
@@ -68,6 +73,7 @@
         ?>
         <div>
             <?php
+                //Sumowanie wartości produktów w koszyku
                 $query = mysqli_query($connection, "SELECT id, book_id FROM cart WHERE user_id = $user_id;");
                 $suma = 0;
                 if (mysqli_num_rows($query) == 0){

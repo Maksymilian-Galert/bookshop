@@ -1,15 +1,15 @@
 <?php
-    session_start();
+    session_start(); //Uruchomienie sesji
+    //Strona niedostępna dla niezalogowanych
     if (!isset($_SESSION['log'])) {
         header("Refresh: 0, url=/bookshop/profile");
     }
-
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
-
+    //Strona niedostępna dla nie-adminów
     $user_id = $_SESSION['log'];
     $role = mysqli_fetch_array(mysqli_query($connection, "SELECT role FROM users WHERE id = '$user_id';"))['role'];
-
     if ($role !== 'admin') {
         header("Refresh: 0, url=/bookshop/profile");
     }
@@ -23,7 +23,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
-    <link rel="stylesheet" href="/bookshop/style/admin_style.css">
 </head>
 <body>
     <?php
@@ -41,12 +40,12 @@
             ?>
         </header>
         <?php
+            //Informacja o zatwierdzeniu zamówienia w momencie jego zatwierdzenia w panelu admina
             if (isset($_GET['set_paid'])) {
                 $order_id = $_GET['set_paid'];
                 if (mysqli_query($connection, "UPDATE orders SET status = 'paid' WHERE id = $order_id;")) {
                     echo ("<strong>Zamówienie #$order_id zostało zatwierdzone</strong>");
                 }
-
             }
         ?>
         <section>
@@ -54,6 +53,7 @@
                 <h3>Oczekujące zamówienia:</h3>
             </header>
             <?php
+                //Wyświetlanie zamówień, które oczekują na potwierdzenie
                 $zamowienia = mysqli_query($connection, "SELECT orders.id, orders.status, orders.total_price, users.email FROM orders INNER JOIN users ON orders.user_id = users.id WHERE orders.status = 'pending';");
                 if (mysqli_num_rows($zamowienia) == 0) {
                     echo ("<p>Brak oczekujących zamówień</p>");
@@ -80,6 +80,7 @@
                 <h3>Opłacone zamówienia</h3>
             </header>
             <?php
+                //Wyświetlanie zamówień, które zostały potwierdzone jako opłacone
                 $paid = mysqli_query($connection, "SELECT orders.id, orders.status, orders.total_price, users.email FROM orders INNER JOIN users ON orders.user_id = users.id WHERE orders.status = 'paid';");
 
                 if (mysqli_num_rows($paid) == 0) {
@@ -99,7 +100,7 @@
                             echo ("</li>");
                         }
                     echo ("</ul>");
-                    
+                    //Wyświetlenie rozszerzonej listy, która wyświetla wszystkie zamówienia opłacone
                     if (count($all_paid) <= 3 || !isset($_GET['oplacone'])) {
                         echo ("<form method='GET'>");
                             echo ("<button name='oplacone' id='oplacone' value='yes'>VV Zobacz wszystkie VV</button>");
@@ -113,6 +114,7 @@
                 <h3>Dodawanie książek</h3>
             </header>
             <?php
+                //Dodawanie nowych książek przez admina
                 if (isset($_GET['add'])) {
                     $title = $_GET['title'];
                     $author = $_GET['author'];
@@ -141,6 +143,7 @@
     </main>
 
     <script>
+        //Zatrzymanie wysłania formularza w momencie niewypełnienia wymaganych pól
         document.getElementById("add").addEventListener("submit", function (e) {
             var accept = 0;
             if (!document.getElementsByName("title")[0].value) {
@@ -177,17 +180,19 @@
             }
         });
 
-
+        //Cena jest większa lub równa 0
         document.getElementsByName("price")[0].addEventListener("input", function (e) {
             if (e.target.value < 0) {
                 e.target.value = 0;
             }
         });
+        //Autouzupełnianie ścieżki pliku
         document.getElementsByName("file_path")[0].addEventListener("focusin", function(e) {
             if (!e.target.value) {
                 e.target.value = document.getElementsByName("title")[0].value.toLowerCase().replaceAll("ń","n").replaceAll("ł","l").replaceAll("ó","o").replaceAll("ę","e").replaceAll("ą","a").replaceAll("ć","c").replaceAll("ś","s").replaceAll("ź","z").replaceAll("ż","z").replaceAll(/[^a-z0-9]/g,"_") + ".pdf";
             }
         });
+        //Autouzupełnianie odkładki książki
         document.getElementsByName("cover")[0].addEventListener("focusin", function(e) {
             if (!e.target.value) {
                 e.target.value = "/bookshop/books/" + document.getElementsByName("title")[0].value.toLowerCase().replaceAll("ń","n").replaceAll("ł","l").replaceAll("ó","o").replaceAll("ę","e").replaceAll("ą","a").replaceAll("ć","c").replaceAll("ś","s").replaceAll("ź","z").replaceAll("ż","z").replaceAll(/[^a-z0-9]/g,"_") + ".png";

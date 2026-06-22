@@ -1,3 +1,6 @@
+/*Dane ogólne, dla wersji mobilnej oraz zwykłej*/
+
+/*Body oraz ogólny wygląd strony*/
 body {
     top: -8px;
     position: relative;
@@ -6,6 +9,7 @@ body > div > * {
     padding: 0 16px;
     box-sizing: border-box;
 }
+/*główny nagłówek witryny*/
 body > div.header {
     background-image: radial-gradient(#bec184, #7a4e00);
 }
@@ -18,7 +22,7 @@ body > div > header#main_header > h1 {
     position: absolute;
     top: -9999px;
 }
-
+/*Nawigacja*/
 body > div.nav {
     background-color: antiquewhite;
     position: sticky;
@@ -28,7 +32,7 @@ body > div.nav {
 body > div > nav {
     width: 100%;
 }
-
+/*Dział main strony index.php - pokazanie produktów*/
 body > div > main {
     min-height: 500px;
     width: 100%;
@@ -62,7 +66,7 @@ body > div > main > section > div > a {
     color: black;
     text-decoration: none;
 }
-
+/*podstrona search*/
 #main_search {
     margin: 0 auto;
 }
@@ -88,7 +92,7 @@ body > div > main > section > div > a {
     max-height: 100px;
     width: auto;
 }
-
+/*Stopka*/
 body > div.footer {
     background-color: antiquewhite;
     padding: 20px;
@@ -108,17 +112,286 @@ body > div.footer > footer > nav a {
     padding-bottom: 8%;
 }
 
+/*Podklasa elementów niewidocznych dla użytkownika*/
 .invisible {
     position: absolute;
     top: -999px;
 }
 
+/*Podstrona profile*/
+#profile {
+    margin: 0 auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    font-size: 180%;
+}
+#profile > section {
+    border-top: 1px solid darkcyan;
+    box-sizing: border-box;
+    padding: 2%;
+    margin-top: 2%;
+}
+#profile > section > ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+#profile > section > form.show_all > button {
+    border: 0;
+    background-color: white;
+    color: darkcyan;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2%;
+}
+#profile > section img {
+    max-width: 80px;
+    height: auto;
+}
+#profile > section > ol > li {
+    display: grid;
+    padding: 2% 0% 2% 0%;
+    box-sizing: border-box;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+}
+#profile > section > ol > li > form > button {
+    border-radius: 40%;
+    background-color: greenyellow;
+    border: 1px solid green;
+    cursor: pointer;
+    padding: 10%;
+    box-sizing: border-box;
+    width: 180%;
+    color: rgb(1, 53, 1);
+    
+}
+#profile > section > form#profile_log_out > button {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    background-color: lightgrey;
+    color: black;
+    box-sizing: border-box;
+    padding: 1%;
+    margin: 20px 0px -50px 0px;
+}
 
-@media only screen and (max-width: 600px) {
+/*Podstrona payment*/
+#payment {
+    padding: 3%;
+    box-sizing: border-box;
+    border: 10px solid aquamarine;
+    border-radius: 10%;
+}
+
+#payment * {
+    display: block;
+    padding: 0.5%;
+}
+#payment strong, #payment p {
+    padding-top: 2.5%;
+}
+#payment a {
+    border: 1px solid blue;
+    background-color: aquamarine;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30%;
+    margin: 3% auto;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+#payment a:hover {
+    background-color: aqua;
+}
+
+/*Podstrona login*/
+.register_site {
+    box-sizing: border-box;
+    min-height: 400px;
+    border: 3px solid black;
+    border-radius: 5%;
+    overflow: hidden;
+}
+.change_log {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.change_log > button {
+    height: 50px;
+    border-radius: 0%;
+    background-color: white;
+}
+.change_log > button:hover {
+    background-color: lightblue;
+}
+.change_log > .active, .change_log > .active:hover {
+    background-color: cyan;
+}
+.register_site > div {
+    padding: 5% 10% 5% 10%;
+    box-sizing: border-box;
+}
+.logging_form {
+    display: grid;
+    grid-template-columns: 15fr 1fr;
+    gap: 10px;
+    grid-template-areas: 
+        "tytul tytul"
+        "email1 email1" 
+        "email2 email2" 
+        "haslo1 haslo1" 
+        "haslo2 eye1" 
+        "haslo3 haslo3" 
+        "haslo4 eye2" 
+        "guzik guzik";
+}
+
+.logging_form strong { grid-area: tytul; }
+.area-email1 { grid-area: email1; }
+.area-email2 { grid-area: email2; }
+.area-haslo1 { grid-area: haslo1; }
+.area-haslo2 { grid-area: haslo2; }
+.area-eye1   { grid-area: eye1; }
+.area-haslo3 { grid-area: haslo3; }
+.area-haslo4 { grid-area: haslo4; }
+.area-eye2   { grid-area: eye2; }
+.area-guzik  { grid-area: guzik; }
+
+.logging_form * {
+    margin: 1.5% 0 0 0;
+    text-align: center;
+    font-size: 120%;
+}
+#pass_error {
+    color: red;
+}
+
+/*Podstrona cart*/
+#cart {
+    margin: 0 auto;
+    padding: 1% 1.5% 2% 1.5%;
+    box-sizing: border-box;
+    min-height: 194px;
+}
+#cart > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1%;
+}
+#cart figure {
+    margin: auto;
+}
+#cart > div > div {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+}
+#cart button {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    border: 0;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    font-size: 110%;
+    font-weight: bold;
+}
+#cart button#buy_every {
+    color: lightseagreen;
+}
+
+/*Podstrona book*/
+#the_book {
+    margin: 0 auto;
+    padding: 5% 5% 5% 5%;
+    box-sizing: border-box;
+    display: grid;
+}
+#the_book strong {
+    display: block;
+    padding-top: 5%;
+}
+#the_book p {
+    padding-bottom: 5%;
+}
+#the_book input, #the_book button {
+    margin: 2% 0 2% 0;
+}
+#the_book > div h2 {
+    font-size: 170%;
+}
+#the_book em {
+    display: block;
+}
+
+/*Podstrona admin*/
+#admin {
+    margin: 0 auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    font-size: 180%;
+}
+#admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
+    display: grid;
+    justify-items: center;
+    box-sizing: border-box;
+}
+#admin > section:first-of-type > ul > form > li:hover { 
+    border: 1px solid blue;
+}
+#admin > section:first-of-type > ul li > * {
+    display: block;
+}
+#admin > section:first-of-type > ul li > button {
+    border: 0;
+    background-color: white;
+    color:darkgreen;
+    font-weight: bold;
+}
+#admin > section:first-of-type > ul li > button:hover {
+    cursor: pointer;
+    color: green;
+}
+#oplacone {
+    border: 0;
+    background-color: white;
+    color: darkcyan;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2%;
+}
+#admin > section #add > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#admin > section #add > fieldset > *{
+    padding: 0;
+    width: 100%;
+    font-size: 80%;
+    text-align: center; 
+}
+
+
+
+@media only screen and (max-width: 600px) {/*CSS dla wersji mobilnej*/
     body > div > * {
         width: 100%;
         margin: 0;
     }
+    /*Nagłówek*/
     body > div > header#main_header {
         max-width: 550px;
         min-height: 150px;
@@ -128,7 +401,7 @@ body > div.footer > footer > nav a {
         background-position: left;
         margin: 0;
     }
-
+    /*Nawigacja*/
     body > div.nav {
         font-size: 1.5cap;
         height: 50px;
@@ -202,7 +475,7 @@ body > div.footer > footer > nav a {
     body > div.nav > nav > div > a:first-child {
         display: none;
     }
-
+    /*Część MAIN*/
     body > div > main {
         padding: 0;
         box-sizing: border-box;
@@ -234,7 +507,7 @@ body > div.footer > footer > nav a {
         grid-template-columns: 1fr;
         width: 100%;
     }
-
+    /*Podstrona search*/
     #main_search {
         max-width: 590px;
     }
@@ -244,7 +517,7 @@ body > div.footer > footer > nav a {
     #main_search a div {
         font-size: 85%;
     }
-
+    /*Stopka*/
     body > div.footer {
         min-height: 40px;
     }
@@ -258,14 +531,71 @@ body > div.footer > footer > nav a {
         color: darkcyan;
         text-decoration: underline; 
     }
+    /*Podstrona profile*/
+    #profile {
+        max-width: 590px;
+    }
+    #profile > section > ol > li {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        font-size: 90%;
+    }
+    /*Podstrona payment*/
+    #payment {
+        max-width: 590px;
+        margin: 5%;
+    }
+    #payment a {
+        font-size: 80%;
+        padding: 3%;
+    }
+    /*Podstrona login*/
+    .register_site {
+        max-width: 590px;
+        margin: 5% auto;
+    }
+    /*Podstrona cart*/
+    #cart {
+        max-width: 590px;
+    }
+    #cart > div > * {
+        padding: 2%;
+        box-sizing: border-box;
+        font-size: 80%;
+    }
+    #cart img {
+        max-width: 60px;
+        height: auto;
+    }
+    /*Podstrona book*/
+    #the_book {
+        max-width: 590px;
+        grid-template-columns: 1fr;
+    }
+    #the_book * {
+        text-align: center;
+    }
+    /*Podstrona admin*/
+    #admin {
+        max-width: 590px;
+    }
+    #admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
+        padding: 1.5%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
+        font-size: 90%;
+    }
+    #admin > section > ul {
+        padding: 0;
+    }
 }
 
 
-@media only screen and (min-width: 601px) {
+
+@media only screen and (min-width: 601px) {/*CSS wersja desktopowa - dla PC i laptopów*/
     body > div > * {
         max-width: 1200px;
         margin: 0 auto;
     }
+    /*Nagłówek*/
     body > div > header#main_header {
         max-width: 100%;
         min-height: 160px;
@@ -275,7 +605,7 @@ body > div.footer > footer > nav a {
         background-position: center;
         margin: 0 auto;
     }
-    
+    /*Nawigacja*/    
     body > div.nav {
         font-size: 2cap;
     }
@@ -295,7 +625,6 @@ body > div.footer > footer > nav a {
         transform: scale(90%);
         border: 1px solid black;
         overflow: hidden;
-
     }
     body > div > nav > a:hover, body > div > nav > div > a:hover {
         background-color: #d7c8b4;
@@ -361,7 +690,7 @@ body > div.footer > footer > nav a {
     body > div.nav > #wycofaj, body > div.nav > nav > #invisible_arrow {
         display: none;
     }
-
+    /*Sekcja MAIN*/
     body > div > main > section {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
@@ -393,11 +722,11 @@ body > div.footer > footer > nav a {
     body > div > main > section > header {
         grid-area: header;
     }
-
+    /*Podstrona search*/
     #main_search {
         max-width: 1200px;
     }
-
+    /*Stopka*/
     body > div.footer {
         min-height: 50px;
     }
@@ -411,5 +740,46 @@ body > div.footer > footer > nav a {
     body > div.footer > footer > nav a:hover {
         color: darkcyan;
         text-decoration: underline; 
+    }
+    /*Podstrona profile*/
+    #profile {
+        max-width: 1200px;
+    }
+    #profile > section > ol > li {
+        grid-template-columns: 1fr 1fr 1fr 4fr;
+    }
+    /*Podstrona payment*/
+    #payment {
+        max-width: 1200px;
+        margin: 2% auto;
+    }
+    #payment a {
+        padding: 1%;
+    }
+    /*Podstrona login*/
+    .register_site {
+        max-width: 1200px;
+        margin: 1% auto;
+    }
+    /*Podstrona cart*/
+    #cart {
+        max-width: 1200px;
+    }
+    #cart img {
+        max-width: 100px;
+        height: auto;
+    }
+    /*Podstrona book*/
+    #the_book {
+        max-width: 1200px;
+        grid-template-columns: 1fr 2fr;
+    }
+    /*Podstrona admin*/
+    #admin {
+        max-width: 1200px;
+    }
+    #admin > section:first-of-type > ul > form > li, #admin > section:nth-of-type(2) > ul > li {
+        padding: 1.5% 1% 1.5% 1%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 5fr 5fr;
     }
 }

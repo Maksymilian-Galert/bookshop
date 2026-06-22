@@ -13,6 +13,8 @@
         <div>
             <a href="/bookshop/profile">&#128113;</a>
             <?php
+                //Dla zalogowanego użytkownika jest opcja profil lub wyloguj
+                //Dla niezalogowanego opcja rejestracji lub logowania
                 if (isset($_SESSION['log'])) {
                     $log = $_SESSION['log'];
                     $email_name = mysqli_fetch_array(mysqli_query($connection,"SELECT email FROM users WHERE id = $log;"));
@@ -25,6 +27,7 @@
             ?>
         </div>
         <?php
+            //Dla zwykłego użytkownika jest opcja koszyk, a dla admina jest panel admina
             if (isset($_SESSION['log'])) {
                 $log = $_SESSION['log'];
                 $role= mysqli_fetch_array(mysqli_query($connection,"SELECT role FROM users WHERE id = $log;"))[0];
@@ -39,6 +42,7 @@
         ?>
     </nav>
     <script>
+        //Logika wyświetlająca napis wyszukaj, gdy pole wyszukiwania jest puste
         document.getElementById("search").addEventListener("focusin", function (e) {
             if (e.target.value == 'Wyszukaj') {
                 e.target.value = '';

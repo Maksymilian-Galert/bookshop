@@ -1,15 +1,17 @@
 <?php
+    //Uruchomienie sesji
     session_start();
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
-
+    //Przekierowanie zalogowanego użytkownika
     if (isset($_SESSION['log'])) {
         header("Refresh: 0, url=/bookshop/profile/");
     }
 
-
     if (isset($_GET['zarejestrowano'])) {
         if ($_GET['zarejestrowano'] == 'zarejestrowano') {
+            //Logika umożliwiająca rejestrację
             $email = $_GET['email'];
             $check_name = "SELECT email FROM users WHERE email = '$email'";
             if (mysqli_query($connection,$check_name)) {
@@ -20,6 +22,7 @@
                 mysqli_query($connection,$add_user);
             }
         } else if ($_GET['zarejestrowano'] == 'zalogowano') {
+            //Logika umożliwiająca zalogowanie
             $email = $_GET['email'];
             $password = $_GET['password'];
             $log_in = "SELECT id FROM users WHERE email = '$email' AND password = '$password';";
@@ -41,7 +44,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUP BOOK</title>
-    <link rel="stylesheet" href="/bookshop/style/logging_style.css">
     <link rel="stylesheet" href="/bookshop/style/style.css">
 </head>
 </head>
@@ -53,7 +55,8 @@
         require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
     ?>
 
-   <?php
+    <?php
+    //Dobór podstrony do logowania lub rejestracji
     if (isset($_GET['logging_site'])) {
         if ($_GET['logging_site'] == "rejestracja") {
             rejestracja();
@@ -65,9 +68,11 @@
     } else {
         logowanie();
     }
+    //Informacje błędów podczas logowania (input ten jest niewidoczny dla użytkownika, ale informacje są później wykorzystywane)
     function used_user($e) {
         echo ("<input type='text' value='$e' class='invisible' id='error_message'>");
     }
+    //Wyświetlanie podstrony do rejestracji
     function rejestracja() {
         echo ("<div class='register_site'>");
             echo ("<form class='change_log'>");
@@ -91,7 +96,7 @@
             echo ("</div>");
         echo ("</div>");
     }
-
+    //Wyświetlanie podstrony do logowania
     function logowanie() {
         echo ("<div class='register_site'>");
             echo ("<form class='change_log'>");
@@ -114,17 +119,20 @@
     }
 ?>
 <script>
+    //Wyświetlanie wiadomości błędu
     let error_message = document.getElementById("error_message").value;
     if (!!error_message) {
         document.getElementById('pass_error').innerHTML = error_message;
     }
 </script>
 <script>
+    //RegExp dla emaila
     document.getElementById("email").addEventListener("input", function(e) {
         e.target.value = e.target.value.replace(/\W/g,"");
     });
 </script>
 <script>
+    //Widoczność hasła po kliknięciu odpowiedniego przycisku
     document.getElementById('eye_password').addEventListener("click", function() {
         document.getElementById('password').type = 'text';
     });
@@ -139,6 +147,7 @@
     });
 </script>
 <script>
+    //Sprawdzanie poprawności wypełnionego formularza
     let logging_form = document.getElementsByClassName('logging_form');
     for (let i = 0; i < logging_form.length; i++) {
         logging_form[i].addEventListener("submit", function(e) {
@@ -160,6 +169,7 @@
                 document.getElementsByClassName("area-haslo1")[0].style.color = "black";
                 correct++;
             }
+            //Dodatkowe wymagania podczas rejestracji
             if (document.getElementById("sec_password")) {
                 if (document.getElementById("password").value.length < 8) {
                     correct --;

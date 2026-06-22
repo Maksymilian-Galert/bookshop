@@ -1,8 +1,11 @@
 <?php
+    //Uruchomienie sesji
     session_start();
+    //Przekierowanie niezalogowanych
     if (!isset($_SESSION['log'])) {
         header("Refresh:0, url=/bookshop/login");
     }
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
 ?>
@@ -13,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
-    <link rel="stylesheet" href="/bookshop/style/profile_style.css">
 </head>
 <body>
     <?php
@@ -36,6 +38,7 @@
                 <h3>Twoje zamówienia</h3>
             </header>
             <?php
+                //Wyświetlanie oczekujących zamówień użytkownika
                 $pending = mysqli_query($connection, "SELECT id, total_price FROM orders WHERE user_id = '$user_id' AND status = 'pending' ORDER BY id DESC;");
                 if (mysqli_num_rows($pending) == 0) {
                     echo ("<p>Brak oczekujących zamówień</p>");
@@ -46,6 +49,7 @@
                     }
                     echo ("</ul>");
                 } else {
+                    //Logika wyświetlania wszystkich po kliknięciu przycisku
                     $pending = mysqli_query($connection, "SELECT id, total_price FROM orders WHERE user_id = '$user_id' AND status = 'pending' ORDER BY id DESC LIMIT 3;");
                     echo ("<ul>");
                     while ($row = mysqli_fetch_array($pending)) {
@@ -63,6 +67,7 @@
                 <h3>Twoje książki</h3>
             </header>
             <?php
+                //Wyświetlanie opłaconych zamówień - książek, które zostały zakupione i można je pobrać
                 $query = mysqli_query($connection,"SELECT books.id AS book_id, books.title, books.cover 
                         FROM orders
                         JOIN order_items ON orders.id = order_items.order_id
@@ -91,7 +96,7 @@
                         echo ("</li>");
                     }
                     echo ("</ol>");
-
+                    //Logika wyświetlania wszystkich produktów po kliknięciu przycisku
                     if (!$show_all) {
                         echo ("<form method='GET' class='show_all'>");
                             echo ("<button name='paid' id='paid'>VV Zobacz wszystkie VV</button>");

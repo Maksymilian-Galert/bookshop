@@ -1,12 +1,17 @@
 <?php
+    //Uruchomienie sesji
     session_start();
+    //Połączenie z bazą danych
     $connection = mysqli_connect("127.0.0.1","root","");
     mysqli_select_db($connection,"kup_book");
+
     if (isset($_GET['add_to_cart'])) {
         $add_to_cart = intval($_GET['add_to_cart']);
+        //Przekierowanie niezalogowanych użytkowników, którzy chcą kupić produkt, do formularza logowania
         if (!isset($_SESSION['log'])) {
             header("Refresh:0; url=/bookshop/login");
         }
+        //Logika kupowania produktów
         $user_id = intval($_SESSION['log']);
         $check_cart = mysqli_query($connection,"SELECT book_id FROM cart WHERE user_id = $user_id AND book_id = $add_to_cart;");
         if (!mysqli_num_rows($check_cart)) {
@@ -15,9 +20,11 @@
                 mysqli_query($connection, "INSERT INTO cart (book_id, user_id) VALUES ('$add_to_cart', '$user_id');");
                 header("Refresh:0; url=/bookshop/cart");
             } else {
+                //Sytuacja, w której produkt jest już zakupiony przez użytkownika
                 header("Refresh:0; url=/bookshop/cart?bought=kupiony");
             }
         } else {
+            //Sytuacja, w której produkt już jest w koszyku
             header("Refresh:0; url=/bookshop/cart?bought=koszyk");
         }
     }
@@ -30,7 +37,6 @@
     <meta name="robots" content="noindex">
     <title>KUP BOOK</title>
     <link rel="stylesheet" href="/bookshop/style/style.css">
-    <link rel="stylesheet" href="/bookshop/style/book_style.css">
 </head>
 <body>
     <?php
@@ -41,6 +47,7 @@
     ?>
 
     <?php
+        //Pokazanie konkretnej książki
         if (!isset($_GET['book_name'])) {
             exit();
         }
