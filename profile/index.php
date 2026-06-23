@@ -6,7 +6,7 @@
         header("Refresh:0, url=/bookshop/login");
     }
     //Połączenie z bazą danych
-    $connection = mysqli_connect("127.0.0.1","root","");
+    $connection = mysqli_connect("127.0.0.1","root",""); //Informacje identyfikujące bazę danych
     mysqli_select_db($connection,"kup_book");
 ?>
 <!DOCTYPE html>
@@ -19,10 +19,10 @@
 </head>
 <body>
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/header.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/header.php"); //Ścieżka identyfikująca potrzebne komponenty
     ?>
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/nav.php"); //Ścieżka identyfikująca potrzebne komponenty
     ?>
 
     <main id="profile">
@@ -111,7 +111,7 @@
     </main>
 
     <?php
-        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php");
+        require ($_SERVER['DOCUMENT_ROOT']."/bookshop/components/footer.php"); //Ścieżka identyfikująca potrzebne komponenty
     ?>
     <?php
         mysqli_close($connection);

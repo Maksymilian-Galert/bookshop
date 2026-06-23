@@ -2,7 +2,7 @@
     //Uruchomienie sesji
     session_start();
     //Połączenie z bazą danych
-    $connection = mysqli_connect("127.0.0.1","root","");
+    $connection = mysqli_connect("127.0.0.1","root",""); //Informacje identyfikujące bazę danych
     mysqli_select_db($connection,"kup_book");
     //Gdy nie kupuje się, użytkownik jest przekierowany do podstrony koszyka
     if (!isset($_GET['buy_every'])) {

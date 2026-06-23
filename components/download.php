@@ -2,13 +2,13 @@
     //Uruchomienie sesji
     session_start();
     //Połączenie z bazą danych
-    $connection = mysqli_connect("127.0.0.1","root","");
+    $connection = mysqli_connect("127.0.0.1","root",""); //Informacje identyfikujące bazę danych
     mysqli_select_db($connection,"kup_book");
 
     if (isset($_POST['book_id'])) {
         
         $query = mysqli_fetch_array(mysqli_query($connection, "SELECT file_path FROM books WHERE id = '$_POST[book_id]'"))['file_path'];
-        $file = 'C:\xampp\htdocs\bookshop\books\\'.$query;
+        $file = 'C:\xampp\htdocs\bookshop\books\\'.$query; //Ścieżka identyfikująca dostęp do folderu zawierającego konkretne książki
 
         if(!file_exists($file)){
             //Plik nie istnieje
