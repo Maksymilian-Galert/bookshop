@@ -1,19 +1,120 @@
-# Projekt księgarni
-Oto mój projekt prymitywnej księgarni, który umożliwia użytkownikom zakup e-booków oraz pobranie ich z witryny księgarni.
 
-Witryna ta posiada funkcję wyszukania konkretnych książek na stronie, potwierdzenie dokonanej płatności (umożliwienie pobrania książki) przez admina jednym kliknięciem, dodanie produktów do koszyka oraz ich zakup. Strona została wykonana responsywnie, dzięki czemu dostosowuje się zarówno do urządzeń mobilnych, jak i do wersji desktopowej (PC i laptopy).
+# Po polsku (in Polish)
+# Projekt księgarni internetowej
 
-# Dane techniczne
+## O projekcie
+Jest to witryna internetowa księgarni, która umożliwia użytkownikowi przeglądanie, kupowanie oraz pobieranie e-booków.
 
-Strona została wykonana na lokalnym serwerze XAMPP, który został dostosowany, aby działał w lokalnej sieci na zarezerwowanym adresie IP. Aby poprawnie z niego korzystać na własnej domenie należy rozpakować wszystkie pliki i katalogi z katalogu 'bookshop', a następnie dostosować wszystkie ścieżki w plikach PHP oraz CSS, aby działały w domenie. Sugerowane jest przekształcenie wszystkich ścieżek zaczynających się od frazy '/bookshop', przygotowanie linijek kodu, w których pojawiają się komentarze o treści: '//Ścieżka identyfikująca potrzebne komponenty' oraz przygotowanie bazy danych oraz przekształcenie połączenia z nią w kodzie, aby była kompatybilna (w tym celu należy edytować linijki kodu, w których znajdują się komentarze o treści: '//Informacje identyfikujące bazę danych').
+Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tworzenie zamówień czy potwierdzanie płatności przez administratora.
 
-Podczas przekształcania wszystkich ścieżek dostępu należy pamiętać o: linkach w znaczniku a, obrazach w znaczniku img, komendy header kodu PHP, linku dołączającego style (pliki CSS), background-image w plikach CSS oraz ścieżki dostępu do okładki oraz książki do pobrania zarówno w bazie danych jak i w plikach PHP.
+## Funkcje
+### Użytkownik:
+    - Opcje rejestracji oraz logowania
+    - Przeglądanie posiadanych książek
+    - Wyszukiwanie produktów po tytule oraz nazwie autora
+    - Dodawanie produktów do koszyka
+    - Składanie zamówień
+    - Pobieranie kupionych e-booków (po potwierdzeniu przez administratora)
+### System kupowania:
+    - Dodawanie oraz usuwanie produktów z koszyka
+    - Składanie zamówień
+    - Generowanie unikalnego ID dla każdego zamówienia
+### Panel administratora:
+    - Widok na oczekujące zamówienia
+    - Możliwość potwierdzenia płatności
+    - Umożliwianie użytkowanikom pobrania e-booków
+    - Dodawanie nowych produktów
+    - Wgląd w zrealizowane zamówienia
+
+## Wykorzystane technologie
+    - HTML
+    - CSS
+    - JavaScript
+    - PHP
+    - MySQL
+    - XAMPP
+
+## Instrukcje techniczne
+    1. Skopiuj repozytorium
+    2. Przenieś projekt do folderu XAMPPa o nazwie 'htdocs'
+    3. Zaimportuj bazę danych o nazwie 'bookshop'
+    4. Skonfiguruj połączenie z bazą danych w pliku PHP
+    5. Uruchom Apache oraz MySQL w XAMPPie
+    6. Otwórz w przeglądarce folder bookshop na lokalnym serwerze (http://localhost/bookshop)
+
+## Responsywność strony
+    Aplikacja internetowa jest w pełni skoordynowana pod względem responsywności dla urządzeń mobilnych oraz desktopowych
+
+## Notatki
+    - Jest to wersja demo projektu (nie posiada prawdziwego systemu płatności)
+    - Potwierdzenie płatności musi być dokonane ręcznie przez administratora
+    - Ścieżki oraz połączenie z bazą danych mogą wymagać dostosowania do lokalnego środowiska
+    - W celu wykorzystania tego projektu na konkretnej domenie należy wpierw przeczytać informacje w pliku DOMAIN.md
+
+## Cel
+### Głównym celem tego projektu była praktyka w zakresie:
+    - Backendu (PHP)
+    - Administracji bazy danych
+    - Utworzenie gotowej strony internetowej
 
 
 
 
+# In English
+# Bookshop Web Application
 
-# bookshop
-It's my project of primitive bookshop, where users can buy e-books and download them there.
+## About the Project
 
+    This is a web application of an online bookstore that allows users to browse, purchase, and download e-books.
 
+    The project simulates a real-world shopping process, including cart management, order creation, and admin approval of payments.
+
+## Features
+### User:
+    - Register and login
+    - Browse available books
+    - Search books by title or author
+    - Add books to cart
+    - Place orders
+    - Download purchased e-books (after admin approval)
+### Shopping System:
+    - Add/remove items from cart
+    - Order summary
+    - Generate order with unique ID
+### Admin Panel:
+    - View pending orders
+    - Approve payments
+    - Enable e-book downloads for users
+    - Adding new products
+    - View of completed order
+
+## Technologies
+    - HTML
+    - CSS
+    - JavaScript
+    - PHP
+    - MySQL
+    - XAMPP (local development)
+
+## Installation 
+    1. Clone the repository
+    2. Move project to XAMPP htdocs folder
+    3. Import database (SQL file)
+    4. Configure database connection in PHP files
+    5. Run Apache and MySQL in XAMPP
+    6. Open in browser: http://localhost/bookshop
+
+## Responsive design
+    The application is fully responsive and works on mobile devices and desktop ones.
+
+## Notes
+    - This is a demo project (no real payments)
+    - Payment confirmation is handled manually by admin
+    - Paths and database connection may require adjustment depending on environment
+    - Before using it on domain read a DOMAIN.md file
+
+## Purpose
+### The goal of this project was to practice:
+    - backend logic (PHP)
+    - database management
+    - building a complete web application
