@@ -8,7 +8,6 @@
             <a href="/bookshop/search/?search=Wyszukaj">Wszystkie książki</a>
             <a href="/bookshop/login/?logging_site=logowanie">Zaloguj się</a>
             <a href="/bookshop/login/?logging_site=rejestracja">Zarejestruj się</a>
-            <a href="/bookshop/login/?logging_site=rejestracja">Zarejestruj się</a>
             <a href="/bookshop/profile/">Profil</a>
             <a href="/bookshop/cart/">Koszyk</a>
             <a href="/bookshop/components/logout.php/">Wyloguj się</a>

@@ -53,6 +53,10 @@
                 <?php
                     //Wyświetlenie trzech najlepiej sprzedających się książek
                     $order_of_bestsellers = mysqli_query($connection, "SELECT book_id FROM order_items GROUP BY book_id ORDER BY COUNT(id) DESC LIMIT 3;");
+                    
+                    if (mysqli_num_rows($order_of_bestsellers) == 0) {
+                        $order_of_bestsellers = mysqli_query($connection, "SELECT id as 'book_id' FROM books ORDER BY title LIMIT 3;");
+                    }
                     $order_of_bestsellers = mysqli_fetch_all($order_of_bestsellers, MYSQLI_ASSOC);
                     foreach ($order_of_bestsellers as $i) {
                         $query = mysqli_fetch_array(mysqli_query($connection, "SELECT title, author, cover FROM books WHERE id = $i[book_id];"));

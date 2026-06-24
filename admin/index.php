@@ -115,27 +115,40 @@
             </header>
             <?php
                 //Dodawanie nowych książek przez admina
-                if (isset($_GET['add'])) {
-                    $title = $_GET['title'];
-                    $author = $_GET['author'];
-                    $description = $_GET['description'];
-                    $price = $_GET['price'];
-                    $file_path = $_GET['file_path'];
-                    $cover = $_GET['cover'];
+                if (isset($_POST['add'])) {
+                    $title = $_POST['title'];
+                    $author = $_POST['author'];
+                    $description = $_POST['description'];
+                    $price = $_POST['price'];
+                    $file_path = $_POST['file_path'];
+                    $cover = $_POST['cover'];
 
-                    if (mysqli_query($connection, "INSERT INTO books (title, author, description, price, file_path, cover) VALUES ('$title', '$author', '$description', '$price', '$file_path', '$cover');") ) {
-                        echo ("<strong>Pomyślnie dodano nową książkę</strong>");
+                    $targetBookFile = $_SERVER['DOCUMENT_ROOT']."/bookshop/books/".$file_path;
+                    $targetCoverFile = $_SERVER['DOCUMENT_ROOT'].$cover;
+
+                    if ($_FILES["book_file"]["size"] > 5000000 || $_FILES["cover_file"]["size"] > 5000000) {
+                        echo ("<strong>Plik jest za duży. Maksymalny dozwolony rozmiar to 5MB.</strong>");
+                    } else if (move_uploaded_file($_FILES["book_file"]["tmp_name"],$targetBookFile) && move_uploaded_file($_FILES["cover_file"]["tmp_name"],$targetCoverFile)) {
+                        echo ("<strong>Plik ". htmlspecialchars(basename($_FILES["book_file"]["name"]))." został pomyślnie przesłany.</strong><br>");
+                        echo ("<strong>Plik ". htmlspecialchars(basename($_FILES["cover_file"]["name"]))." został pomyślnie przesłany.</strong><br>");
+                        if (mysqli_query($connection, "INSERT INTO books (title, author, description, price, file_path, cover) VALUES ('$title', '$author', '$description', '$price', '$file_path', '$cover');") ) {
+                            echo ("<strong>Pomyślnie dodano nową książkę</strong><br>");
+                        } else {
+                            echo ("<strong>Wystąpił błąd podczas przesyłania pliku.</strong>");
+                        }
                     }
                 }
             ?>
-            <form id="add">
+            <form id="add" method="POST" enctype="multipart/form-data">
                 <fieldset>
                     <input type="text" name="title" placeholder="Tytuł książki">
                     <input type="text" name="author" placeholder="Imię i nazwisko autora">
                     <textarea placeholder="Opis książki" name="description" rows="4" cols="50"></textarea>
                     <input type="number" name="price" placeholder="Cena książki" step="0.01">
                     <input type="text" name="file_path" placeholder="Nazwa pliku pdf">
+                    <span id="book_file_span"><input type='file' name='book_file' id="book_file">Plik z książką (.pdf)</span>
                     <input type="text" name="cover" placeholder="Ścieżka dostępu okładki">
+                    <span id="cover_file_span"><input type='file' name='cover_file' id="cover_file">Plik z okładką (.png)</span>
                     <button type="submit" name="add">Dodaj książkę</button>
                 </fieldset>
             </form>
@@ -172,6 +185,20 @@
                 document.getElementsByName("cover")[0].style.border = "5px dotted red";
             } else {
                 document.getElementsByName("cover")[0].style.border = "";
+            }
+
+            if (!document.getElementsByName("book_file")[0].value || !document.getElementsByName("book_file")[0].value.toLowerCase().endsWith('.pdf')) {
+                accept--;
+                document.getElementById("book_file_span").style.border = "5px dotted red";
+            } else {
+                document.getElementById("book_file_span").style.border = "";
+            }
+
+            if (!document.getElementsByName("cover_file")[0].value || !document.getElementsByName("cover_file")[0].value.toLowerCase().endsWith('.png')) {
+                accept--;
+                document.getElementById("cover_file_span").style.border = "5px dotted red";
+            } else {
+                document.getElementById("cover_file_span").style.border = "";
             }
 
 

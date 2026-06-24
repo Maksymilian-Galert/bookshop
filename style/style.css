@@ -375,15 +375,21 @@ h2 {
 }
 #admin > section #add > fieldset {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 #admin > section #add > fieldset > *{
-    padding: 0;
-    width: 100%;
+    padding: 1%;
+    width: 92%;
+    min-width: 50px;
     font-size: 80%;
     text-align: center; 
 }
-
+#admin > section #add > fieldset input[type='file'] {
+    font-size: 0.6vw;
+}
+#admin > section #add > fieldset > span {
+    display: grid;
+}
 
 
 @media only screen and (max-width: 600px) {/*CSS dla wersji mobilnej*/
