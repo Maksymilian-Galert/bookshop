@@ -37,7 +37,7 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
 ## Instrukcje techniczne
     1. Skopiuj repozytorium
     2. Przenieś projekt do folderu XAMPPa o nazwie 'htdocs'
-    3. Zaimportuj bazę danych o nazwie 'bookshop'
+    3. Zaimportuj bazę danych o nazwie 'kup_book'
     4. Skonfiguruj połączenie z bazą danych w pliku PHP
     5. Uruchom Apache oraz MySQL w XAMPPie
     6. Otwórz w przeglądarce folder bookshop na lokalnym serwerze (http://localhost/bookshop)
