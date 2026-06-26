@@ -92,6 +92,39 @@ body > div > main > section > div > a {
     max-height: 100px;
     width: auto;
 }
+#main_search > button#filters {
+    background-color: rgb(113, 0, 113);
+    color: white;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    border: 0;
+    padding: 1% 5% 1% 5%;
+    width: 90%;
+}
+#main_search > button#filters:hover {
+    background-color: rgb(193, 2, 193);
+}
+#main_search > aside {
+    background-color: rgb(113, 0, 113);
+    width: 90%;
+    height: 80vh;
+    position: sticky;
+    z-index: 1;
+    top: 120px;
+    display: none;
+    margin: auto;
+}
+#main_search > aside > button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: 0;
+    background-color: rgb(113, 0, 113);
+    color: white;
+    font-size: 200%;
+    cursor: pointer;
+}
 /*Stopka*/
 body > div.footer {
     background-color: antiquewhite;
