@@ -43,6 +43,12 @@
         Case 'old':
             $sql .= " ORDER BY id ASC";
             Break;
+        Case 'az':
+            $sql .= " ORDER BY title ASC";
+            Break;
+        Case 'za':
+            $sql .= " ORDER BY title DESC";
+            Break;
         Default:
             // 'sel' lub brak dopasowania - domyślne sortowanie (np. Brak lub po ID)
             Break;

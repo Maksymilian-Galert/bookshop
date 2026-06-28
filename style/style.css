@@ -99,7 +99,7 @@ body > div > main > section > div > a {
     margin: 10px auto;
     display: block;
     border: 0;
-    padding: 1% 5% 1% 5%;
+    padding: 2% 5% 2% 5%;
     width: 90%;
 }
 #main_search > button#filters:hover {
@@ -108,12 +108,14 @@ body > div > main > section > div > a {
 #main_search > aside {
     background-color: rgb(113, 0, 113);
     width: 90%;
-    height: 80vh;
+    height: 60vh;
     position: sticky;
     z-index: 1;
     top: 120px;
     display: none;
     margin: auto;
+    padding-bottom: 10%;
+    color: white;
 }
 #main_search > aside > button {
     position: absolute;
@@ -124,6 +126,33 @@ body > div > main > section > div > a {
     color: white;
     font-size: 200%;
     cursor: pointer;
+}
+#main_search > aside > form > h5 {
+    font-size: 120%;
+    text-align: center;
+    margin: 25px 0 5px 0;
+}
+#main_search > aside > form {
+    display: grid;
+}
+#main_search > aside > form * {
+    margin: 5px 20% 5px 20%;
+}
+#main_search > aside > form > label {
+    text-align: center;
+    margin-top: 30px;
+}
+#main_search > aside > form span {
+    display: grid;
+    grid-template-columns: 1fr 1124fr;
+    float: left;
+    padding: 0 20% 0 20%;
+}
+#main_search > aside > form span * {
+    margin: 2px;
+}
+#main_search > aside > form span label {
+    transform: translateY(20%);
 }
 /*Stopka*/
 body > div.footer {
@@ -555,6 +584,9 @@ h2 {
     }
     #main_search a div {
         font-size: 85%;
+    }
+    #main_search > aside > form span {
+        padding: 0 5% 0 5%;
     }
     /*Stopka*/
     body > div.footer {

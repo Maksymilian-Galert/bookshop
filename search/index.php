@@ -61,10 +61,12 @@
                 <input type="hidden" name="search" value="<?php echo htmlspecialchars($search); ?>">
 
                 <h5>Filtry</h5>
-                <label for='minimal_price'>Cena:</label><br>
-                <input type='number' step='0.01' name='minimal_price' min='0' max='<?php echo ('$max');?>'>
-                <input type='number' step='0.01' name='maximal_price' min='0' max='<?php echo ('$max');?>'>
-                <br><br><label for='choose_author'>Autorzy:</label><br>
+                <label for='minimal_price'>Cena:</label>
+                <?php
+                    echo ("<input type='number' step='0.01' name='minimal_price' min='0' max='$max' placeholder='Cena minimalna'>");
+                    echo ("<input type='number' step='0.01' name='maximal_price' min='0' max='$max' placeholder='Cena maksymalna'>");
+                ?>
+                <label for='choose_author'>Autorzy:</label>
 
                 <?php
                     if ($search == 'Wyszukaj') {
@@ -74,10 +76,14 @@
                     }
                     $wynik_group = mysqli_fetch_all($wynik_group, MYSQLI_ASSOC);
                     foreach ($wynik_group as $row) {
-                        echo ("<input type='checkbox' name='choose_author[]' value='$row[author]'>");
-                        echo ("<label for='choose_author'>$row[author]</label><br>");
+                        echo ("<span>");
+                            echo ("<input type='checkbox' name='choose_author[]' value='$row[author]'>");
+                            echo ("<label for='choose_author'>$row[author]</label>");
+                        echo ("</span>");
                     }
                 ?>
+
+                <h5>Sortowanie</h5>
 
                 <select name='choose_sorting'>
                     <option value='sel'>Najtrafniejsze</option>
@@ -85,6 +91,8 @@
                     <option value='old'>Najstarsze</option>
                     <option value='price_low'>Najniższa cena</option>
                     <option value='price_high'>Najwyższa cena</option>
+                    <option value='az'>Od A do Z</option>
+                    <option value='za'>Od Z do A</option>
                 </select>
             </form>
         </aside>
@@ -96,12 +104,30 @@
         </div>
     </main>
     <script>
-        document.getElementById("filters").addEventListener("click", function() {
+        document.getElementById("filters").addEventListener("click", function(event) {
             document.getElementById("filters_window").style.display = "grid";
+            event.stopPropagation();
         });;
+        document.addEventListener("click", function(event) {
+            if (!document.getElementById("filters_window").contains(event.target) && event.target !== document.getElementById("filters")) {
+                document.getElementById("filters_window").style.display = "none";
+            }
+        });
         document.getElementById("close_window").addEventListener("click", function() {
             document.getElementById("filters_window").style.display = "none";
         });;
+    </script>
+    <script>
+        document.getElementsByName("minimal_price")[0].addEventListener("input", function() {
+            if (document.getElementsByName("minimal_price")[0].value > parseFloat(document.getElementsByName("minimal_price")[0].max)) {
+                document.getElementsByName("minimal_price")[0].value = document.getElementsByName("minimal_price")[0].max;
+            }
+        });
+        document.getElementsByName("maximal_price")[0].addEventListener("input", function() {
+            if (document.getElementsByName("maximal_price")[0].value > parseFloat(document.getElementsByName("maximal_price")[0].max)) {
+                document.getElementsByName("maximal_price")[0].value = document.getElementsByName("maximal_price")[0].max;
+            }
+        });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
