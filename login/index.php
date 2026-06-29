@@ -171,11 +171,11 @@
             }
             //Dodatkowe wymagania podczas rejestracji
             if (document.getElementById("sec_password")) {
-                if (document.getElementById("password").value.length < 8) {
+                if (document.getElementById("password").value.length < 5) {
                     correct --;
                     document.getElementsByClassName("area-haslo1")[0].textContent = "Hasło*";
                     document.getElementsByClassName("area-haslo1")[0].style.color = "red";
-                    document.getElementById("pass_error").innerHTML += "Hasło musi zawierać minimum 8 znaków <br>";
+                    document.getElementById("pass_error").innerHTML += "Hasło musi zawierać minimum 5 znaków <br>";
                 }
                 if (!document.getElementById("password").value.match(/[A-Z]/)) {
                     correct --;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Cze 25, 2026 at 08:20 AM
+-- Generation Time: Cze 29, 2026 at 11:26 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -46,8 +46,11 @@ INSERT INTO `books` (`id`, `title`, `author`, `description`, `price`, `file_path
 (2, 'Krwawa dama', 'Korneliusz De Cadaver', 'Przed wami kolejną część z cyklu \"Dzienniki Korneliusza\". Historia ta rozgrywa się kilka wieków po poprzednim opowiadaniu. Przedstawię wam moment, w którym zostałem zatytułowany hrabią, poszerzę wasze pojmowanie na temat wampirzych stowarzyszeń oraz ich działania, a także przedstawię wam fascynujących bohaterów.', 24.99, 'krwawa_dama.pdf', '/bookshop/books/krwawa_dama.png'),
 (3, 'Pakt z trupem', 'Korneliusz De Cadaver', 'Przed wami kolejną część z cyklu \"Dzienniki Korneliusza\". Historia ta rozgrywa się trochę po poprzednim opowiadaniu. Opowiadanie to przedstawia moje spotkanie ze starym znajomym, Michałem Sędziwojem, oraz pokazuje, jak rozwiązałem swoje stare zatargi z jednym z najpotężniejszych diabłów, z Mefistofelesem. ', 14.99, 'pakt_z_trupem.pdf', '/bookshop/books/pakt_z_trupem.png'),
 (4, 'Po nitce do kłębka', 'Korneliusz De Cadaver', 'Przed wami kolejną część z cyklu \"Dzienniki Korneliusza\". Historia ta jest bezpośrednią kontynuacją \"Hieny cmentarnej\" i rozgrywa się jeszcze przed opowiadaniami: \"Pakt z trupem\" oraz \"Krwawa dama\"\r\nMożecie dowiedzieć się w tym opowiadaniu nowych informacji o wampirach oraz łowcach, a także być świadkiem nieczęstej sytuacji, podczas której przybieram nową postać. Nie spoilerując więcej zapraszam do czytania i mam nadzieję, że ta historia zmrozi wam krew w żyłach.', 25.00, 'po_nitce_do_klebka.pdf', '/bookshop/books/po_nitce_do_klebka.png'),
-(28, 'Labirynt', 'Korneliusz De Cadaver', 'Historia opowiada o grupie nastolatków, którzy wpadli na pomysł, aby bawić się w labiryncie. Z początki nie wiedzieli, czym to wszystko się skończy, ale skutki na pewno im się nie spodobają.\r\nPrzed wami krótkie opowiadanie o lekkim klimacie horrorowym. Mam nadzieję, że będzie to dobra odskocznie przed większymi utworami, a jednocześnie miłym spędzeniem czasu.', 12.99, 'labirynt.pdf', '/bookshop/books/labirynt.png'),
-(29, 'Żywe śmierci początki', 'Korneliusz De Cadaver', 'Zapraszam was serdecznie do opowiadania, od którego wszystko się zaczęło. Zaznacie odrobiny historii z czasów, kiedy jeszcze żyłem jako zwykły człowiek. Dowiecie się także, z jakimi mankamentami wiąże się zostanie wampirem.\r\nJest to pierwsze w kolejności opowiadanie, przed innymi: „Hiena cmentarna\", „Krwawa dama\", „Pakt z trupem\" oraz „Po nitce do kłębka\", do zapoznania się, z którymi serdecznie zapraszam.', 34.99, 'zywe_smierci_poczatki.pdf', '/bookshop/books/zywe_smierci_poczatki.png');
+(28, 'Labirynt', 'Anonimowy Autor', 'Historia opowiada o grupie nastolatków, którzy wpadli na pomysł, aby bawić się w labiryncie. Z początki nie wiedzieli, czym to wszystko się skończy, ale skutki na pewno im się nie spodobają.\r\nPrzed wami krótkie opowiadanie o lekkim klimacie horrorowym. Mam nadzieję, że będzie to dobra odskocznie przed większymi utworami, a jednocześnie miłym spędzeniem czasu.', 12.99, 'labirynt.pdf', '/bookshop/books/labirynt.png'),
+(29, 'Żywe śmierci początki', 'Korneliusz De Cadaver', 'Zapraszam was serdecznie do opowiadania, od którego wszystko się zaczęło. Zaznacie odrobiny historii z czasów, kiedy jeszcze żyłem jako zwykły człowiek. Dowiecie się także, z jakimi mankamentami wiąże się zostanie wampirem.\r\nJest to pierwsze w kolejności opowiadanie, przed innymi: „Hiena cmentarna\", „Krwawa dama\", „Pakt z trupem\" oraz „Po nitce do kłębka\", do zapoznania się, z którymi serdecznie zapraszam.', 34.99, 'zywe_smierci_poczatki.pdf', '/bookshop/books/zywe_smierci_poczatki.png'),
+(30, 'Demoniczny obol', 'Anonimowy Autor', 'Wielu ludzi mówi o tym, że zmaga się z wewnętrznymi demonami. Jedni w ten sposób określają codzienne problemy, takie jak stres w pracy, przemęczenie czy trudności, na które natrafili. Inni mówią o nich w sytuacjach, gdy trudne wydarzenia sprzed lat do nas wracają, nazywają to demonami przeszłości. Ja natomiast, kiedy wspominam o swoich demonach, mam zupełnie co innego na myśli. Nie chodzi mi wtedy o przykrości ani bolączki, a prawdziwe stwory z piekieł, które żywią się ludzkimi słabościami i na nich żerują. No, ale cóż. Nie mogę liczyć na nic innego, będąc wnuczką samego Szatana.', 24.99, 'demoniczny_obol.pdf', '/bookshop/books/demoniczny_obol.png'),
+(31, 'Trup w ludzkiej skórze', 'Korneliusz De Cadaver', 'Zapraszam was serdecznie do opowiadania, w którym zdecydowałem się wniknąć w szeregi łowców wampirów, zupełnie jak wilk starający się skryć między owcami. Czy był to dobry pomysł? Czy na dobre mi to wyszło? Przekonajcie się sami.\r\nJest to opowiadanie, po: „Hiena cmentarna\",  „Po nitce do kłębka\" oraz „Krwawa dama\", a przed „Pakt z trupem\",  do zapoznania się, z którymi serdecznie zapraszam.', 34.99, 'trup_w_ludzkiej_skorze.pdf', '/bookshop/books/trup_w_ludzkiej_skorze.png'),
+(32, 'Cisza nastała w kamienicy', 'Anonimowy Autor', 'Okres dwudziestolecia międzywojennego. Brak nowoczesnych technologii i mroczne czasy tylko skłaniały coraz to kolejne osoby do zbrodni. W jednej z kamienic doszło do paskudnej rzezi, której zaradzić może jedynie trójka policjantów oraz... pewna nietypowa osobistość.\r\nTrudne śledztwo, poszukiwanie zabójcy, obrazy trupów oraz nietypowe metody analizy poszlak - to wszystko znajdziesz tu. Przekonasz się, czemu \"Cisza nastała w kamienicy\".', 54.99, 'cisza_nastala_w_kamienicy.pdf', '/bookshop/books/cisza_nastala_w_kamienicy.png');
 
 -- --------------------------------------------------------
 
@@ -60,15 +63,6 @@ CREATE TABLE `cart` (
   `book_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `book_id`, `user_id`) VALUES
-(47, 1, 4),
-(48, 2, 4),
-(49, 28, 4);
 
 -- --------------------------------------------------------
 
@@ -83,6 +77,13 @@ CREATE TABLE `orders` (
   `total_price` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `status`, `total_price`) VALUES
+(29, 4, 'paid', 57.97);
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +95,15 @@ CREATE TABLE `order_items` (
   `order_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `book_id`) VALUES
+(34, 29, 1),
+(35, 29, 2),
+(36, 29, 28);
 
 -- --------------------------------------------------------
 
@@ -158,7 +168,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -170,13 +180,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `users`
