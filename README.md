@@ -7,6 +7,11 @@ Jest to witryna internetowa księgarni, która umożliwia użytkownikowi przegl�
 
 Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tworzenie zamówień czy potwierdzanie płatności przez administratora.
 
+<p align='center'>
+    <img src='screenshots/strona_glowna.jpg' width='60%' alt='Widok strony głównej'>
+    <img src='screenshots/wersja_mobilna.jpg' width='30%' alt='Widok strony głównej w wersji mobilnej'>
+</p>
+
 ## Funkcje
 ### Użytkownik:
     - Opcje rejestracji oraz logowania
@@ -25,6 +30,31 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
     - Umożliwianie użytkowanikom pobrania e-booków
     - Dodawanie nowych produktów
     - Wgląd w zrealizowane zamówienia
+### Wybierz sekcję poniżej, aby zobaczyć zrzuty ekranu z działania aplikacji
+<details>
+    <summary>Ekran Logowania oraz Filtrowanie</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/logowanie.jpg' width='30%' alt='Ekran logowania'>
+        <img src='screenshots/wyszukiwanie.jpg' width='30%' alt='Ekran wyszukiwania'>
+        <img src='screenshots/filtrowanie.jpg' width='30%' alt='Filtry wyszukiwania'>
+    </p>
+</details>
+<details>
+    <summary>Koszyk zakupowy oraz profil użytkownika</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/koszyk.jpg' width='45%' alt='Koszyk'>
+        <img src='screenshots/profil.jpg' width='45%' alt='Profil użytkownika'>
+    </p>
+</details>
+<details>
+    <summary>Panel administratora</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/panel_admina.jpg' width='90%' alt='Panel admina'>
+    </p>
+</details>
 
 ## Wykorzystane technologie
     - HTML
@@ -69,6 +99,11 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
 
     The project simulates a real-world shopping process, including cart management, order creation, and admin approval of payments.
 
+<p align='center'>
+    <img src='screenshots/strona_glowna.jpg' width='60%' alt='View of the page'>
+    <img src='screenshots/wersja_mobilna.jpg' width='30%' alt='Mobile view'>
+</p>
+
 ## Features
 ### User:
     - Register and login
@@ -87,6 +122,31 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
     - Enable e-book downloads for users
     - Adding new products
     - View of completed order
+### Choose section to see screenshots
+<details>
+    <summary>Logging screen and Filtrs</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/logowanie.jpg' width='30%' alt='Logging screen'>
+        <img src='screenshots/wyszukiwanie.jpg' width='30%' alt='Searching page'>
+        <img src='screenshots/filtrowanie.jpg' width='30%' alt='Filtrs of searching'>
+    </p>
+</details>
+<details>
+    <summary>Cart and profile</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/koszyk.jpg' width='45%' alt='Cart'>
+        <img src='screenshots/profil.jpg' width='45%' alt='Profile'>
+    </p>
+</details>
+<details>
+    <summary>Admin panel</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/panel_admina.jpg' width='90%' alt='Admin panel'>
+    </p>
+</details>
 
 ## Technologies
     - HTML

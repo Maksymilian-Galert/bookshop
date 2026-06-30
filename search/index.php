@@ -44,6 +44,7 @@
                     //Informacja, po jakiej frazie wyszukiwano
                     echo ("<header><h2>Wyniki wyszukania po frazie: $search</h2></header>");
                 }
+                // Sprawdzenie najwyższej ceny wśród produktów
                 $max = 0;
                 for ($i = 0; $i < count($wynik); $i++) {
                     $price = $wynik[$i]['price'];
@@ -53,7 +54,7 @@
                 }
             }
         ?>
-
+        <!-- Wyświetlane okno filtrów i opcji sortowania -->
         <button id='filters'>Filtry oraz sortowanie</button>
         <aside id='filters_window'>
             <button id='close_window'>X</button>
@@ -69,6 +70,7 @@
                 <label for='choose_author'>Autorzy:</label>
 
                 <?php
+                    // Pobieranie autorów do filtra
                     if ($search == 'Wyszukaj') {
                         $wynik_group = mysqli_query($connection,"SELECT author FROM books GROUP BY author;");
                     } else {
@@ -104,6 +106,7 @@
         </div>
     </main>
     <script>
+        // Logika wyświetlania okna z filtrami i opcjami sortowania
         document.getElementById("filters").addEventListener("click", function(event) {
             document.getElementById("filters_window").style.display = "grid";
             event.stopPropagation();
@@ -118,39 +121,46 @@
         });;
     </script>
     <script>
+        // Blokada przed wpisaniem złych wartości do inputa
         document.getElementsByName("minimal_price")[0].addEventListener("input", function() {
             if (document.getElementsByName("minimal_price")[0].value > parseFloat(document.getElementsByName("minimal_price")[0].max)) {
                 document.getElementsByName("minimal_price")[0].value = document.getElementsByName("minimal_price")[0].max;
+            }
+            if (document.getElementsByName("minimal_price")[0].value < 0) {
+                document.getElementsByName("minimal_price")[0].value = 0;
             }
         });
         document.getElementsByName("maximal_price")[0].addEventListener("input", function() {
             if (document.getElementsByName("maximal_price")[0].value > parseFloat(document.getElementsByName("maximal_price")[0].max)) {
                 document.getElementsByName("maximal_price")[0].value = document.getElementsByName("maximal_price")[0].max;
             }
+            if (document.getElementsByName("maximal_price")[0].value < 0) {
+                document.getElementsByName("maximal_price")[0].value = 0;
+            }
         });
     </script>
     <script>
+        // Logika umożliwiająca dynamiczną zmianę wyszukiwania według filtrów i sortowania
         document.addEventListener("DOMContentLoaded", function () {
             const filterForm = document.getElementById("filter_form");
             const booksContainer = document.getElementById("books_container");
 
-           
-            // Nasłuchiwanie zmian w formularzu
+            // Uruchomienie funkcji w przypadku edycji pól formularza
             filterForm.addEventListener("input", sendAjaxRequest);
             filterForm.addEventListener("change", sendAjaxRequest);
-            
 
             function sendAjaxRequest() {
-                // Automatyczne pobranie wszystkich danych z formularza
+                // Pobranie danych z formularza
                 const formData = new FormData(filterForm);
                 const searchParams = new URLSearchParams(formData).toString();
-
-                // Wysyłanie żądania do pliku PHP, który generuje same wyniki
+                // Wysyłanie żądania do pliku PHP, który generuje wyniki
                 fetch("/bookshop/components/search_books.php?" + searchParams)
                     .then(response => response.text())
                     .then(data => {
-                        booksContainer.innerHTML = data; // Podmiana zawartości kontenera
+                        // Podmiana zawartości kontenera
+                        booksContainer.innerHTML = data;
                     })
+                    // Informacja w przypadku błędu
                     .catch(error => console.error("Błąd AJAX:", error));
             }
         });
