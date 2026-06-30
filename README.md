@@ -7,13 +7,13 @@ Jest to witryna internetowa księgarni, która umożliwia użytkownikowi przegl�
 
 Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tworzenie zamówień czy potwierdzanie płatności przez administratora.
 
-<detail>
+<details>
     <summmary>Widok strony głównej</summary>
     <p align='center'>
         <img src='screenshots/strona_glowna.jpg' width='60%' alt='Widok strony głównej'>
         <img src='screenshots/wersja_mobilna.jpg' width='30%' alt='Widok strony głównej w wersji mobilnej'>
     </p>
-</detail>
+</details>
 
 ## Funkcje
 ### Użytkownik:
@@ -102,13 +102,13 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
 
     The project simulates a real-world shopping process, including cart management, order creation, and admin approval of payments.
 
-<detail>
+<details>
     <summmary>View of the page</summary>
     <p align='center'>
         <img src='screenshots/strona_glowna.jpg' width='60%' alt='View of the page'>
         <img src='screenshots/wersja_mobilna.jpg' width='30%' alt='Mobile view'>
     </p>
-</detail>
+</details>
 
 ## Features
 ### User:
