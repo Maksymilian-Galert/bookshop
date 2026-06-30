@@ -35,12 +35,19 @@ Projekt ten imituje procesy sklepu internetowego, takie jak obsługa koszyka, tw
     - Wgląd w zrealizowane zamówienia
 ### Wybierz sekcję poniżej, aby zobaczyć zrzuty ekranu z działania aplikacji
 <details>
+    <summary>Strona wyszukiwania oraz podstrona produktów</summary>
+    <br>
+    <p align='center'>
+        <img src='screenshots/wyszukiwanie.jpg' width='45%' alt='Ekran wyszukiwania'>
+        <img src='screenshots/ksiazki.jpg' width='45%' alt='Podstrona produktu'>
+    </p>
+</details>
+<details>
     <summary>Ekran Logowania oraz Filtrowanie</summary>
     <br>
     <p align='center'>
-        <img src='screenshots/logowanie.jpg' width='30%' alt='Ekran logowania'>
-        <img src='screenshots/wyszukiwanie.jpg' width='30%' alt='Ekran wyszukiwania'>
-        <img src='screenshots/filtrowanie.jpg' width='30%' alt='Filtry wyszukiwania'>
+        <img src='screenshots/logowanie.jpg' width='45%' alt='Ekran logowania'>
+        <img src='screenshots/filtrowanie.jpg' width='45%' alt='Filtry wyszukiwania'>
     </p>
 </details>
 <details>
